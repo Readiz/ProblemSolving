@@ -18,9 +18,9 @@ rl.on('line', (line) => {
     if (isEnteringDepTree) {
         if (inputNumbers.length == 2) {
             depTree[inputNumbers[1]].push(inputNumbers[0]);
-            console.log(depTree);
         } else if (inputNumbers.length == 1) {
             isEnteringDepTree = false;
+            console.log(depTree);
 
             // Start Calculating
             const targetBuildingNum = inputNumbers[0];
