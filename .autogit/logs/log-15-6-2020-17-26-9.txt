@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Wed Jul 15 2020 17:26:09 GMT+0900 (Korean Standard Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/autogit.json
+* step_09/5-2869.cpp
+
+
+Deleted files:
+
+
+Renamed files:

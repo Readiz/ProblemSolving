@@ -1,5 +1,31 @@
+#include <stdio.h>
 
+int main() {
+    int a, b, v;
+    scanf("%d %d %d", &a, &b, &v);
 
+    // x일이 지났을 때, 올라간 높이는
+    // (x - 1)(a - b) + a = v가 되는 x 값을 구하면 된다.
+    // 이 식을 풀면, xa - bx - a + b + a = v
+    // (a - b)x = v - b
+    // x = (v - b) / (a - b)
+    // 부등호가 붙는다면, x >= (v - b) / (a - b)를 만족하는 가장 작은 정수 x일 것.
+
+    int u = v - b;
+    int d = a - b;
+
+    if (d <= 0) {
+        printf("Not possible!\n");
+    } else {
+        if (u % d == 0) {
+            printf("%d\n", u / d);
+        } else {
+            printf("%d\n", u / d + 1);
+        }
+    }
+    
+    return 0;
+}
 
 
 /*
