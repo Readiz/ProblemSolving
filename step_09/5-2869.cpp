@@ -10,7 +10,6 @@ int main() {
     // (a - b)x = v - b
     // x = (v - b) / (a - b)
     // 부등호가 붙는다면, x >= (v - b) / (a - b)를 만족하는 가장 작은 정수 x일 것.
-
     int u = v - b;
     int d = a - b;
 
