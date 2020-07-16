@@ -1,20 +1,32 @@
 #include <stdio.h>
-#define MEMO_MAX 100000000
+#define MEMO_MAX 100000
 int main() {
     int T;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
-        unsigned int memo[MEMO_MAX] = { 0, 1, 2, 4, 6, 9, 12, 16, };
-        unsigned int x, y, diff;
-        scanf("%u %u", &x, &y);
+        // // int memo[MEMO_MAX] = { 0, 1, 2, 4, 6, 9, 12, 16, };
+        // int oldOne = 1;
+        // for (int i = 1; i < 100; i++) {
+        //     int newOne = 1;
+        //     if(i >= 2) {
+        //         newOne = oldOne + ((i + 1) / 2);
+        //     }
+        //     oldOne = newOne;
+        //     printf("%d ", newOne);
+        // }
+        int x, y, diff;
+        scanf("%d %d", &x, &y);
         diff = y - x;
+        int oldOne = 1;
         for (int i = 1; i < MEMO_MAX; i++) {
-            if (memo[i] == 0) {
-                memo[i] = memo[i - 1] + ((i + 1) / 2);
+            int newOne = 1;
+            if(i >= 2) {
+                newOne = oldOne + ((i + 1) / 2);
             }
-            if (memo[i] >= diff) {
+            oldOne = newOne;
+            if (newOne >= diff) {
                 printf("%d\n", i);
-                break;                
+                break;
             }
         }
     }
@@ -36,5 +48,13 @@ int main() {
 5: 1 2 3 2 1        => 9  ( + 3)
 6: 1 2 3 3 2 1      => 12 ( + 3)
 7: 1 2 3 4 3 2 1    => 16 ( + 4)
+
+이걸 규칙대로 찍어보면:
+1 2 4 6 9 12 16 20 25 30 36 42 49 56 64 72 81 90 100 110 121 132 144 156 169 182 196 210 225 240 256 272 289 306 324 342 361 380 400 420 441 462 484 506 529 552 576 600 625 650 676 702 729 756 784 812 841 870 900 930 961 992 1024 1056 1089 1122 1156 1190 1225 1260 1296 1332 1369 1406 1444 1482 1521 1560 1600 1640 1681 1722 1764 1806 1849 1892 1936 1980 2025 2070 2116 2162 2209 2256 2304 2352 2401 2450 2500
+
+홀수 수열
+1 4 9 16 25 36 49 64 81 ...
+짝수 수열
+2 6 12 20 30 42 56 72 90 ...
 
 */
