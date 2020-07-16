@@ -4,16 +4,6 @@ int main() {
     int T;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
-        // // int memo[MEMO_MAX] = { 0, 1, 2, 4, 6, 9, 12, 16, };
-        // int oldOne = 1;
-        // for (int i = 1; i < 100; i++) {
-        //     int newOne = 1;
-        //     if(i >= 2) {
-        //         newOne = oldOne + ((i + 1) / 2);
-        //     }
-        //     oldOne = newOne;
-        //     printf("%d ", newOne);
-        // }
         int x, y, diff;
         scanf("%d %d", &x, &y);
         diff = y - x;
@@ -54,7 +44,12 @@ int main() {
 
 홀수 수열
 1 4 9 16 25 36 49 64 81 ...
+=> i^2임
 짝수 수열
 2 6 12 20 30 42 56 72 90 ...
+=> i^2 + i 임
 
+=> 만약 distance가 주어진다면, 우선 그 distance를 갖는 것보다 작은 i 값을 먼저 찾고
+   그보다 더 작아질 수 있는 i 값이 있는지를 한번 더 보면 됨.
+ex) ditance가 10이다 => 
 */
