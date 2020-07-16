@@ -10,7 +10,7 @@ int main() {
         diff = y - x;
         for (int i = 1; i < MEMO_MAX; i++) {
             if (memo[i] == 0) {
-                memo[i] = memo[i - 1] + (unsigned int)((i + 1) / 2);
+                memo[i] = memo[i - 1] + ((i + 1) / 2);
             }
             if (memo[i] >= diff) {
                 printf("%d\n", i);
