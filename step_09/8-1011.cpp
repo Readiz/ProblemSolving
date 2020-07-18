@@ -1,24 +1,49 @@
 #include <stdio.h>
-#define MEMO_MAX 100000
+
+// x_n+1 = 1/2(x_n + a/x_n) 임을 활용 (a: 입력값)
+// 반복할 수록 정밀도 높아짐.
+int approx_sqrt(int a)
+{
+    int x = 2;
+    for(int i = 0; i < 4; i++)
+    {
+        x = ( x + ( a / x ) ) / 2;
+    }
+ 
+    return x;
+}
+
+// 구해야할 수열:
+// 1 2 4 6 9 12 16 20 25 30 36 42 49 56 64 72 81 90 100 110 121 132 144 156 169 182 196 210 225 240 256 272 289 306 324 342 361 380 400 420 441 462 484 506 529 552 576 600 625 650 676 702 729 756 784 812 841 870 900 930 961 992 1024 1056 1089 1122 1156 1190 1225 1260 1296 1332 1369 1406 1444 1482 1521 1560 1600 1640 1681 1722 1764 1806 1849 1892 1936 1980 2025 2070 2116 2162 2209 2256 2304 2352 2401 2450 2500
+// 홀수 수열
+// 1 4 9 16 25 36 49 64 81 ...
+// => i^2임
+// 짝수 수열
+// 2 6 12 20 30 42 56 72 90 ...
+// => i^2 + i 임
+int get_max_dist(int i) {
+    if (i % 2 == 1) {
+        return ((i + 1) / 2) * ((i + 1) / 2);
+    } else {
+        return (i / 2) * (i / 2) + (i / 2);
+    }
+}
+
 int main() {
     int T;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
-        int x, y, diff;
+        int x, y, diff, approx_min;
         scanf("%d %d", &x, &y);
         diff = y - x;
-        int oldOne = 1;
-        for (int i = 1; i < MEMO_MAX; i++) {
-            int newOne = 1;
-            if(i >= 2) {
-                newOne = oldOne + ((i + 1) / 2);
-            }
-            oldOne = newOne;
-            if (newOne >= diff) {
-                printf("%d\n", i);
-                break;
-            }
+
+        approx_min = approx_sqrt(diff) * 2;
+        while (diff <= get_max_dist(approx_min)) {
+            // printf("diff: %d, approx: %d\n", diff, get_max_dist(approx_min));
+            // diff: 12, approx: 12면 그냥 12 출력하면 됨
+            approx_min--;
         }
+        printf("%d\n", approx_min + 1);
     }
     return 0;
 }
@@ -51,5 +76,5 @@ int main() {
 
 => 만약 distance가 주어진다면, 우선 그 distance를 갖는 것보다 작은 i 값을 먼저 찾고
    그보다 더 작아질 수 있는 i 값이 있는지를 한번 더 보면 됨.
-ex) ditance가 10이다 => 
+ex) ditance가 10이다 => (10)^1/2 = 3.xxx 이므로 3부터 시작. 3 * 2 부터 시작해서 비교하면 됨
 */
