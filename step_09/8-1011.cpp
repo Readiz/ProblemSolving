@@ -2,12 +2,14 @@
 
 // x_n+1 = 1/2(x_n + a/x_n) 임을 활용 (a: 입력값)
 // 반복할 수록 정밀도 높아짐.
-int approx_sqrt(int a)
+unsigned int approx_sqrt(unsigned int a)
 {
-    int x = 2;
-    for(int i = 0; i < 4; i++)
-    {
-        x = ( x + ( a / x ) ) / 2;
+    unsigned int x = 2;
+    unsigned int x_new;
+    for(int i = 0; i < 20; i++) {
+        x_new = ( x + ( a / x ) ) / 2;
+        if (x_new == x) break;
+        x = x_new;
     }
  
     return x;
@@ -21,11 +23,13 @@ int approx_sqrt(int a)
 // 짝수 수열
 // 2 6 12 20 30 42 56 72 90 ...
 // => i^2 + i 임
-int get_max_dist(int i) {
+unsigned int get_max_dist(unsigned int i) {
     if (i % 2 == 1) {
-        return ((i + 1) / 2) * ((i + 1) / 2);
+        unsigned int tmp = ((i + 1) / 2);
+        return tmp * tmp;
     } else {
-        return (i / 2) * (i / 2) + (i / 2);
+        unsigned int tmp = (i / 2);
+        return tmp * tmp + tmp;
     }
 }
 
@@ -33,17 +37,21 @@ int main() {
     int T;
     scanf("%d", &T);
     for (int tc = 0; tc < T; tc++) {
-        int x, y, diff, approx_min;
-        scanf("%d %d", &x, &y);
+        unsigned int x, y, diff, approx_min;
+        scanf("%u %u", &x, &y);
         diff = y - x;
 
         approx_min = approx_sqrt(diff) * 2;
+        int overstep = 0;
         while (diff <= get_max_dist(approx_min)) {
-            // printf("diff: %d, approx: %d\n", diff, get_max_dist(approx_min));
-            // diff: 12, approx: 12면 그냥 12 출력하면 됨
+            // printf("diff > approx_dist! recalculate...\n");
+            // printf("diff: %u, approx_dist: %u, approx_min: %u\n", diff, get_max_dist(approx_min), approx_min);
             approx_min--;
+            overstep++;
         }
-        printf("%d\n", approx_min + 1);
+        // printf("Done! Overstep: %d\n", overstep);
+        // printf("[Final] diff: %u, approx_dist: %u, approx_min: %u\n", diff, get_max_dist(approx_min + 1), approx_min + 1);
+        printf("%u\n", approx_min + 1);
     }
     return 0;
 }
