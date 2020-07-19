@@ -1,22 +1,10 @@
 #include <stdio.h>
-#define PI 3.14159265358
-#include <cmath>
-#define _USE_MATH_DEFINES
+#define PI 3.14159265358979323846
 int main() {
     int r;
     scanf("%d", &r);
-    printf("%.6lf\n", (double)r * r * 3.14159265358);
+    printf("%.6lf\n", (double)r * r * PI);
     printf("%.6lf\n", (double)r * r * 2);
-
-
-    // <비교>
-    double R, S1, S2;
-    scanf("%lf", &R);
-    S1 = M_PI * R * R;
-    S2 = R * R * 2;
- 
-    printf("%.6f\n", S1);
-    printf("%.6f\n", S2);
     return 0;
 }
 
