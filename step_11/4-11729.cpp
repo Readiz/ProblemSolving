@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MEMO_MAX 1000000
+#define MEMO_MAX 3000000
 // source: 1, target: 3 기준으로 메모
 // 0: undefined
 // 1: 1 -> 2
@@ -30,9 +30,57 @@ int hanoi(int n) {
     
     if(memo[n][0] == undefined) {
         // Make Hanoi Solution Here...
-        for (int k = n - 1; k > 0; k--) {
-            for (int pos = 0; memo[k][pos] == undefined; pos++) {
-
+        int pos = 0;
+        for (; memo[n - 1][pos] != undefined; pos++) {
+            // In this case, change extra <-> target
+            switch(memo[n - 1][pos]) {
+                case sourceToExtra:
+                    memo[n][pos] = sourceToTarget;
+                    break;
+                case sourceToTarget:
+                    memo[n][pos] = sourceToExtra;
+                    break;
+                case extraToSource:
+                    memo[n][pos] = targetToSource;
+                    break;
+                case extraToTarget:
+                    memo[n][pos] = targetToExtra;
+                    break;
+                case targetToSource:
+                    memo[n][pos] = extraToSource;
+                    break;
+                case targetToExtra:
+                    memo[n][pos] = extraToTarget;
+                    break;
+                case undefined:
+                    break;
+            }
+        }
+        int tmpOffset = pos + 1;
+        memo[n][pos++] = sourceToTarget;
+        for (; memo[n - 1][pos - tmpOffset] != undefined; pos++) {
+            // In this case, change extra <-> source
+            switch(memo[n - 1][pos - tmpOffset]) {
+                case sourceToExtra:
+                    memo[n][pos] = extraToSource;
+                    break;
+                case sourceToTarget:
+                    memo[n][pos] = extraToTarget;
+                    break;
+                case extraToSource:
+                    memo[n][pos] = sourceToExtra;
+                    break;
+                case extraToTarget:
+                    memo[n][pos] = sourceToTarget;
+                    break;
+                case targetToSource:
+                    memo[n][pos] = targetToExtra;
+                    break;
+                case targetToExtra:
+                    memo[n][pos] = targetToSource;
+                    break;
+                case undefined:
+                    break;
             }
         }
     }
@@ -52,6 +100,28 @@ int main() {
     scanf("%d", &N);
     printf("%d\n", hanoi(N));
 
+    for (int i = 0; memo[N][i] != undefined; i++) {
+        switch(memo[N][i]) {
+            case sourceToExtra:
+                printf("1 2\n");
+                break;
+            case sourceToTarget:
+                printf("1 3\n");
+                break;
+            case extraToSource:
+                printf("2 1\n");
+                break;
+            case extraToTarget:
+                printf("2 3\n");
+                break;
+            case targetToSource:
+                printf("3 1\n");
+                break;
+            case targetToExtra:
+                printf("3 2\n");
+                break;
+        }
+    }
     return 0;
 }
 
@@ -72,7 +142,7 @@ n: 3    => 7번
 1 2  -> 3 / 2 / 1
 3 2  -> 3 / 12 /       ----> 여기까지가 n = 2 일때 (2 <-> 3) ==> target이 extra랑 바뀜.
 1 3  -> / 12 / 3       --> 그 다음 추가된 원반을 가져다가 놓고... 
-2 1  -> 1 / 2 / 3      ---> n = 1의 모습 (맨 좌측)을 만들고 맨 아래 원판을 n = 3으로 가져다 놓고 반복.
+2 1  -> 1 / 2 / 3      --> 다시 f(2) 스타트. 중앙의 12를 우측으로 가져다 놓는다. source <-> extra
 2 3  -> 1 / / 23              -> 원래 1 2 (sourceToExtra) 였음. source가 1->2로 바뀜 (1<->2)
 1 3  -> / / 123        ==> f(2)[2 <-> 3] + 1 + f(1)[] + 1 + 1
 
