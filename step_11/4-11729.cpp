@@ -20,15 +20,14 @@ enum Path {
 Path memo[21][MEMO_MAX] = {undefined, };
 
 // f(n) = (f(n-1) + 1) + (f(n-2) + 1) + ... + (f(1) + 1) + 1
-int hanoi(int n, int source, int target) {
-    int extra;
-    if (source == 1 && target == 3) extra = 2;
-    else if (source == 2 && target == 3) extra = 1;
-    else if (source == 1 && target == 3) extra = 2;
-    else if (source == 1 && target == 3) extra = 2;
-    else if (source == 1 && target == 3) extra = 2;
-    else if (source == 1 && target == 3) extra = 2;
-    
+int hanoi(int n) {
+    if (n == 1) return 1;
+    int result = 0;
+    for (int i = n - 1; i >= 1; i++) {
+        result += hanoi(i) + 1;
+    }
+    result += 1;
+    return result;
 }
 
 int main() {
@@ -41,7 +40,7 @@ int main() {
 
     int N;
     scanf("%d", &N);
-    printf("%d\n", hanoi(N, 1, 3));
+    printf("%d\n", hanoi(N));
 
     return 0;
 }
