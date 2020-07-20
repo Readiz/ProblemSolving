@@ -1,10 +1,47 @@
 #include <stdio.h>
+#define MEMO_MAX 1000000
+// source: 1, target: 3 기준으로 메모
+// 0: undefined
+// 1: 1 -> 2
+// 2: 1 -> 3
+// 3: 2 -> 1
+// 4: 2 -> 3
+// 5: 3 -> 1
+// 6: 3 -> 2
+enum Path {
+    undefined = 0,
+    sourceToExtra = 1,
+    sourceToTarget = 2,
+    extraToSource = 3,
+    extraToTarget = 4,
+    targetToSource = 5,
+    targetToExtra = 6
+};
+Path memo[21][MEMO_MAX] = {undefined, };
+
+// f(n) = (f(n-1) + 1) + (f(n-2) + 1) + ... + (f(1) + 1) + 1
+int hanoi(int n, int source, int target) {
+    int extra;
+    if (source == 1 && target == 3) extra = 2;
+    else if (source == 2 && target == 3) extra = 1;
+    else if (source == 1 && target == 3) extra = 2;
+    else if (source == 1 && target == 3) extra = 2;
+    else if (source == 1 && target == 3) extra = 2;
+    else if (source == 1 && target == 3) extra = 2;
+    
+}
 
 int main() {
+    // Initialize
+    memo[1][0] = sourceToTarget;
+
+    memo[2][0] = sourceToExtra;
+    memo[2][1] = sourceToTarget;
+    memo[2][2] = extraToTarget;
+
     int N;
     scanf("%d", &N);
-
-    
+    printf("%d\n", hanoi(N, 1, 3));
 
     return 0;
 }
