@@ -3,6 +3,7 @@
 int weight[200];
 int height[200];
 int maxIndex = 0;
+int rank[200];
 
 enum CompareResult {
     notDefined = 0,
@@ -30,9 +31,27 @@ int main() {
             }
         }
     }
+    int curRank = 1;
+    int rankDefined = 0;
+    while (true) {
+        for (int i = 0; i < N; i++) {
+            // get Current Rank
+            if (compare(maxIndex, i) == notDefined) {
+                rank
+            }
 
-    printf("Max: %d\n", maxIndex);
+
+            // get Next Rank
+        }
+        if (rankDefined == N) break;
+    }
+
+    for (int i = 0; i < N; i++) {
+        printf("%d ", rank[i]);
+    }
+    printf("\n");
     
+
     return 0;
 }
 
