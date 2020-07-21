@@ -7,7 +7,8 @@ int rank[200];
 
 enum CompareResult {
     notDefined = 0,
-    targetIsBigger = 1
+    targetIsBigger = 1,
+    sourceIsBigger = 2
 };
 
 // return true when target is bigger then source
@@ -15,6 +16,9 @@ CompareResult compare(int source, int target) {
     if (weight[source] < weight[target] &&
         height[source] < height[target]) {
         return targetIsBigger;
+    } else if (weight[source] > weight[target] &&
+        height[source] > height[target]) {
+        return sourceIsBigger;
     }
     return notDefined;
 }
@@ -31,19 +35,17 @@ int main() {
             }
         }
     }
-    int curRank = 1;
+    
     int rankDefined = 0;
-    while (true) {
-        for (int i = 0; i < N; i++) {
-            // get Current Rank
-            if (compare(maxIndex, i) == notDefined) {
-                rank
+    for (int i = 0; i < N; i++) {
+        int myRank = 1; // 처음에 1위라고 가정
+        for (int j = 0; j < N; j++) {
+            if (i == j) continue;
+            if (compare(i, j) == targetIsBigger) {
+                myRank++;
             }
-
-
-            // get Next Rank
         }
-        if (rankDefined == N) break;
+        rank[i] = myRank;
     }
 
     for (int i = 0; i < N; i++) {
@@ -51,7 +53,6 @@ int main() {
     }
     printf("\n");
     
-
     return 0;
 }
 
