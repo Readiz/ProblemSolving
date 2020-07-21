@@ -13,7 +13,7 @@ enum CompareResult {
 CompareResult compare(int source, int target) {
     if (weight[source] < weight[target] &&
         height[source] < height[target]) {
-        return targetISBigger;
+        return targetIsBigger;
     }
     return notDefined;
 }
@@ -30,6 +30,8 @@ int main() {
             }
         }
     }
+
+    printf("Max: %d\n", maxIndex);
     
     return 0;
 }
