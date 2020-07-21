@@ -1,15 +1,35 @@
 #include <stdio.h>
 
+int weight[200];
+int height[200];
+int maxIndex = 0;
+
+enum CompareResult {
+    notDefined = 0,
+    targetIsBigger = 1
+};
+
+// return true when target is bigger then source
+CompareResult compare(int source, int target) {
+    if (weight[source] < weight[target] &&
+        height[source] < height[target]) {
+        return targetISBigger;
+    }
+    return notDefined;
+}
+
 int main() {
     int N;
     scanf("%d", &N);
 
-    int height[200];
-    int weight[200];
-
-    
-
-
+    for (int i = 0; i < N; i++) {
+        scanf("%d %d", &weight[i], &height[i]);
+        if (i != 0) {
+            if(compare(maxIndex, i) == targetIsBigger) {
+                maxIndex = i;
+            }
+        }
+    }
     
     return 0;
 }
