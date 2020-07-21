@@ -4,8 +4,11 @@ int main() {
     int N;
     scanf("%d", &N);
 
-    int maxIndex = -1;
+    int height[200];
+    int weight[200];
+
     
+
 
     
     return 0;

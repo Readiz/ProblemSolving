@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jul 21 2020 09:41:15 GMT+0900 (Korean Standard Time)
+------------------------------------------------------
+
+Modified files:
+* step_13/3-7568.cpp
+
+
+Created files:
+* .autogit/logs/log-21-6-2020-9-11-9.txt
+
+
+Deleted files:
+
+
+Renamed files:
