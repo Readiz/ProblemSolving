@@ -4,6 +4,9 @@ int main() {
     int N;
     scanf("%d", &N);
 
+    int maxIndex = -1;
+    
+
     
     return 0;
 }
