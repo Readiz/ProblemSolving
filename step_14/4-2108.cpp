@@ -7,6 +7,7 @@ int main() {
     int sum = 0;
     int min = 5000;
     int max = -5000;
+    int median = -1;
 
     for (int i = 0; i < N; i++) {
         int tmp;
@@ -14,8 +15,27 @@ int main() {
         numCount[tmp + 4000]++;
         sum += tmp;
     }
+    int median_tmp = 0;
+    for (int i = 0; i < N; i++) {
+        median_tmp += numCount[i];
+        if (median_tmp >= N / 2 + 1) {
+            median = i;
+            break;
+        }
+    }
+    int mode = -1;
+    int mode_tmp = 0;
+    for (int i = 0; i < N; i++) {
+        
+    }
 
+    // 산술평균
     printf("%d\n", (sum % N) ? (sum / N) + 1 : (sum / N)); // 반올림
+    // 중앙값
+    printf("%d\n", median);
+    // 최빈값
+    printf("%d\n", mode);
+
     return 0;
 }
 /*
