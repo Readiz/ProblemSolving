@@ -1,0 +1,1 @@
+c;b=9;main(i){for(scanf("%d",&c);b>-1;b--)for(i=c;i;i/=10)i%10==b&&putchar(b+48);}

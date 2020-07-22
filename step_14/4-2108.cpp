@@ -14,27 +14,55 @@ int main() {
         scanf("%d", &tmp);
         numCount[tmp + 4000]++;
         sum += tmp;
+
+        if (tmp > max) max = tmp;
+        if (tmp < min) min = tmp;
     }
     int median_tmp = 0;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < 8001; i++) {
         median_tmp += numCount[i];
         if (median_tmp >= N / 2 + 1) {
-            median = i;
+            median = i - 4000;
             break;
         }
     }
     int mode = -1;
-    int mode_tmp = 0;
-    for (int i = 0; i < N; i++) {
-        
+    int mode_tmp = 0; // 최빈값의 최대값
+    int mode_count = 0;
+    for (int i = 0; i < 8001; i++) {
+        if (numCount[i] > mode_tmp) {
+            mode_tmp = numCount[i];
+            mode = i - 4000;
+            mode_count = 0;
+            // [TODO]
+            // 셋째 줄에는 최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.
+        } else if (numCount[i] == mode_tmp) {
+            mode_count ++;
+        }
+    }
+    // 최빈값이 여러개 있을 때
+    if (mode_count) {
+        bool is_mode_lowest = false;
+        for (int i = 0; i < 8001; i++) {
+            if (numCount[i] == mode_tmp && is_mode_lowest == false) {
+                is_mode_lowest = true;
+                continue;
+            } else if (numCount[i] == mode_tmp) {
+                // 위에서 첫번째 값은 스킵되고, 두번째가 들어온다.
+                mode = i - 4000;
+                break;
+            }
+        }
     }
 
     // 산술평균
-    printf("%d\n", (sum % N) ? (sum / N) + 1 : (sum / N)); // 반올림
+    printf("%.0lf\n", (double)sum / N); // 반올림
     // 중앙값
     printf("%d\n", median);
     // 최빈값
     printf("%d\n", mode);
+    // 범위
+    printf("%d\n", max - min);
 
     return 0;
 }
