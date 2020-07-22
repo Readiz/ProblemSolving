@@ -3,11 +3,17 @@
 int main() {
     int N;
     scanf("%d", &N);
-    int numCount[10001] = {0, };
+    int numCount[8001] = {0, };
+    int sum = 0;
+    int min = 5000;
+    int max = -5000;
+
     for (int i = 0; i < N; i++) {
         int tmp;
         scanf("%d", &tmp);
-        numCount[tmp]++;
+        numCount[tmp + 4000]++;
+        sum += tmp;
+        
     }
     return 0;
 /*
