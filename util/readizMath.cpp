@@ -19,6 +19,9 @@ int approx_sqrt(int a)
     return x;
 }
 
+// 반올림
+// (sum % N) ? (sum / N) + 1 : (sum / N)
+
 int main() {
     for (int i = 1; i <= 20; i++)
         printf("sqrt(%d) = %d\n", i * i, approx_sqrt(i * i));

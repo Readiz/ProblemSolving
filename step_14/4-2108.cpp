@@ -15,7 +15,7 @@ int main() {
         sum += tmp;
     }
 
-    printf("%.0lf\n", sum / N);
+    printf("%d\n", (sum % N) ? (sum / N) + 1 : (sum / N)); // 반올림
     return 0;
 }
 /*
