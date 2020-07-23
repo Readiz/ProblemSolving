@@ -1,22 +1,44 @@
 #include <stdio.h>
 
-bool points[200001][200001] = { 0, };
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+static void swap(Point& a, Point& b) {
+    Point* tmp;
+    tmp = &a;
+    &a = &b;
+    &b = tmp;
+    
+    // printf("A: %d %d / B: %d %d\n", a.x, a.y, b.x, b.y);
+    // int tmpx, tmpy;
+    // tmpx = a.x;
+    // tmpy = a.y;
+    
+    // a.x = b.x;
+    // a.y = b.y;
+    
+    // b.x = tmpx;
+    // b.y = tmpy;
+
+    // printf("A: %d %d / B: %d %d\n", a.x, a.y, b.x, b.y);
+    return;
+}
+
 int main() {
     int N;
     scanf("%d", &N);
+    Point p[100000];
 
     for (int i = 0; i < N; i++) {
         int x, y;
         scanf("%d %d", &x, &y);
-        points[x + 100000][y + 100000] = 1;
+        p[i].x = x;
+        p[i].y = y;
     }
-    for (int i = 0; i < 200001; i++) {
-        for (int j = 0; j < 200001; j++) {
-            if (points[i][j] != 0) {
-                printf("%d %d\n", i - 100000, j - 100000);
-            }
-        }
-    }
+    swap(p[0], p[1]);
+    printf("%d %d\n", p[0].x, p[0].y);
     return 0;
 }
 
