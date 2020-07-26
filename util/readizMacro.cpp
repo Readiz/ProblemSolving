@@ -6,6 +6,16 @@
 #define	UPCASE(c)		( ( (c)>='a' && (c)<='z') ? (c)-('a'-'A') : (c) )	// 소문자->대문자
 #define LOWCASE(c)		( ( (c)>='A' && (c)<='Z') ? (c)+('a'-'A') : (c) )	// 대문자->소문자
 
+#define SWAP(a, b)  a ^= b; b ^= a; a ^= b;
+
+#define SWAP(a, b, type) do { \
+    type temp; \
+    temp = a;  \
+    a = b;     \
+    b = temp;  \
+} while (0)
+
+
 // ARRAY_SIZE(x) 사용 예
 int arn_numbers[] = {1, 2, 3, 4, 5};
 int n_index;

@@ -1,29 +1,48 @@
-#include<stdio.h>
-int main()
-{
-  bool che[246913]={0};
-  int prime[123456];
-  long long i,j,k=0;
-  for(i=2;i<=246912;i++)
-  {
-    if(che[i]==0)
-    {
-      prime[k++]=i;
-      for(j=i*i;j<=246912;j+=i)che[j]=1;
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<ctime>
+using namespace std;
+ 
+ 
+class Student{
+public:
+    string name;
+    int age;
+    Student(string name, int age):name(name),age(age){}
+    
+};
+ 
+ 
+void Print(vector<Student> &v){
+    cout << "Student : " ;
+    for(int i=0; i<5; i++){
+        cout << "[" << v[i].name << ", " << v[i].age << "]";
     }
-  }
-  int n;
-  for(;scanf("%d",&n),n;)
-  {
-    int s=0;
-    for(i=0;i<k;i++)
-    {
-      if(prime[i]>n)
-      {
-        if(prime[i]<=2*n)s++;
-        else break;
-      }
-    }
-    printf("%d\n",s);
-  }
+    cout << endl;
 }
+ 
+bool compare(Student a, Student b){
+    if(a.name == b.name){   //이름이 같으면, 나이가 적은순
+        return a.age < b.age;
+    }else{                  //이름 다르면, 이름 사전순
+        return a.name < b.name;
+    }
+    
+}
+int main(void){
+    vector<Student> v;
+    
+    v.push_back(Student("cc", 10));
+    v.push_back(Student("ba", 24));
+    v.push_back(Student("aa", 11));
+    v.push_back(Student("cc", 8));  //cc는 이름이 같으니 나이 기준 오름차순 예시
+    v.push_back(Student("bb", 21));
+    
+    Print(v); //정렬 전 출력
+    sort(v.begin(), v.end(), compare); //[begin, end) compare 함수 기준 정렬
+    Print(v); //정렬 후 출력
+    
+    return 0;
+}
+ 

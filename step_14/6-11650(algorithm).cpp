@@ -1,21 +1,41 @@
 #include <stdio.h>
-#define SWAP(a, b)  a ^= b; b ^= a; a ^= b;
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+class Point {
+public:
+    int x;
+    int y;
+    Point(int x, int y) {
+        this->x = x;
+        this->y = y;
+    }
+};
+
+bool compare(Point& a, Point& b) {
+    if (a.x == b.x) {
+        return a.y < b.y;
+    } else {
+        return a.x < b.x;
+    }
+}
 
 int main() {
     int N;
     scanf("%d", &N);
-    int x[100000];
-    int y[100000];
+    vector<Point> vPoints;
 
     for (int i = 0; i < N; i++) {
-        scanf("%d %d", &x[i], &y[i]);
+        int x, y;
+        scanf("%d %d", &x, &y);
+        vPoints.push_back(Point(x, y));
     }
     
-    // Bubble Sort
-    // [TODO]
+    sort(vPoints.begin(), vPoints.end(), compare);
 
     for (int i = 0; i < N; i++) {
-        printf("%d %d\n", x[i], y[i]);
+        printf("%d %d\n", vPoints[i].x, vPoints[i].y);
     }
     return 0;
 }
