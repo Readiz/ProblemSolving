@@ -2,11 +2,17 @@
 
 int N, M;
 
-void printCurrentNum(int num) {
+void printCurrentNumIfItIsAcending(int num) {
     int reverse = 0;
     while (num != 0) {
         reverse *= 10;
         reverse += num % 10;
+        if (num % 10 > (num / 10) % 10) {
+            // do nothing
+        } else {
+            // Not acending, so it's return and do nothing
+            return;
+        }
         num /= 10;
     }
     while (reverse != 0) {
@@ -29,7 +35,7 @@ bool isAlreadyUsedNum(int currentNum, int targetNum) {
 void printNum(int step, int currentNum) {
     if (step == M) { // 최종까지 왔을 경우
         // 출력한다.
-        printCurrentNum(currentNum);
+        printCurrentNumIfItIsAcending(currentNum);
         return;
     }
 
@@ -50,13 +56,11 @@ int main() {
 }
 
 /*
-백트래킹: 모든 경우를 탐색.
-nPm을 구하는 문제임..
-
 문제
 자연수 N과 M이 주어졌을 때, 아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오.
 
 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
+고른 수열은 오름차순이어야 한다.
 입력
 첫째 줄에 자연수 N과 M이 주어진다. (1 ≤ M ≤ N ≤ 8)
 
