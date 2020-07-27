@@ -1,7 +1,65 @@
 #include <stdio.h>
 
-int main() {
+int N;
+static int An[11] = {0, };
+static int On[10] = {0, };
+static int operatorNum[4] = {0, };
+static int max = -2000000000;
+static int min = 2000000000;
 
+static bool solve(int pos) {
+    if (pos >= N - 1) { // 연산자가 다 찬 것이므로
+        // Min / Max 계산 후
+        int val = An[0];
+        for (int i = 1; i < N; i++) {
+            switch(On[i - 1]) {
+                case 0:
+                val += An[i];
+                break;
+                case 1:
+                val -= An[i];
+                break;
+                case 2:
+                val *= An[i];
+                break;
+                case 3:
+                val /= An[i];
+                break;
+            }
+        }
+        if (val > max) max = val;
+        if (val < min) min = val;
+        // 종료
+        return true;
+    }
+    for (int i = 0; i < 4; i++) {
+        if (operatorNum[i]) {
+            On[pos] = i;
+            operatorNum[i] --;
+            solve(pos + 1);
+            On[pos] = 0;
+            operatorNum[i] ++;
+        }
+    }
+
+    return false;
+}
+
+int main() {
+    scanf("%d", &N);
+
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &An[i]);
+    } 
+    for (int i = 0; i < 4; i++) {
+        // 차례로 덧셈, 뺄셈, 곱셈, 나눗셈
+        scanf("%d", &operatorNum[i]);
+    }
+
+    solve(0);
+
+    printf("%d\n", max);
+    printf("%d\n", min);
 
     return 0;
 }
