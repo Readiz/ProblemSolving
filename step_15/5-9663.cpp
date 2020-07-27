@@ -1,45 +1,79 @@
 #include <stdio.h>
 
-int N, M;
+int static N;
+bool static board[8][8] = { { false, },  };
+int static result = 0;
 
-void printCurrentNumIfItIsAcending(int num) {
-    int reverse = 0;
-    while (num != 0) {
-        reverse *= 10;
-        reverse += num % 10;
-        if (num % 10 >= (num / 10) % 10) {
-            // do nothing
-        } else {
-            // Not acending, so it's return and do nothing
-            return;
+void static copyBoard(bool source[8][8], bool target[8][8]) {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            target[i][j] = source[i][j];
         }
-        num /= 10;
     }
-    while (reverse != 0) {
-        printf("%d ", reverse % 10);
-        reverse /= 10;
+}
+void static updateIfItIsPossible(int targetI, int targetJ) {
+    if (targetI >= 0 && targetI < 8 && targetJ >= 0 && targetJ < 8) {
+        board[targetI][targetJ] = true;
     }
-    printf("\n");
+}
+void static updateBoard(int targetI, int targetJ) {
+    // 좌/우, 상/하
+    for (int i = 0; i < 8; i++) {
+        board[i][targetJ] = true;
+    }
+    for (int j = 0; j < 8; j++) {
+        board[targetI][j] = true;
+    }
+    // 대각선
+    for (int i = 0; i < 8; i++) {
+        updateIfItIsPossible(targetI - i, targetJ - i);
+        updateIfItIsPossible(targetI - i, targetJ + i);
+        updateIfItIsPossible(targetI + i, targetJ - i);
+        updateIfItIsPossible(targetI + i, targetJ + i);
+    }
 }
 
-void printNum(int step, int currentNum) {
-    if (step == M) { // 최종까지 왔을 경우
-        // 출력한다.
-        printCurrentNumIfItIsAcending(currentNum);
+void static printBoard() {
+    printf("------------\n");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (board[i][j]) printf("X");
+            else printf("O");
+        }
+        printf("\n");
+    }
+    printf("------------\n");
+}
+
+void static calculateStep(int step) {
+    if (step == N) { // 최종까지 왔을 경우
+        result++; // 결과를 추가한다.
         return;
     }
 
-    for (int i = 1; i <= N; i++) {
-        // 안쓰인 숫자들에 한해 아래 단계로 내린다.
-        printNum(step + 1, currentNum * 10 + i);
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            // 추가로 현재 위치에 놓을 수 있을 때만 계산
+            if (board[i][j] == false) {
+                // 현 위치 백업
+                bool tmpBoard[8][8];
+                copyBoard(board, tmpBoard);
+                updateBoard(i, j);
+                printBoard();
+                // 다음 단계 계산
+                calculateStep(step + 1);
+                // 백업본으로 되돌리기
+                copyBoard(tmpBoard, board);
+            }
+        }
     }
     return;
 }
 
 int main() {
-    scanf("%d %d", &N, &M);
-    printNum(0, 0);
-
+    scanf("%d", &N);
+    calculateStep(0);
+    printf("%d\n", result);
     return 0;
 }
 
