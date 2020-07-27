@@ -37,7 +37,8 @@ bool static checkValidAns() {
     return true;
 }
 
-void static getEasySol() {
+bool static getEasySol() {
+    bool changedFlag = false;
     // 가로 + 세로
     for (int i = 0; i < 9; i++) {
         int countHor = 0;
@@ -48,24 +49,50 @@ void static getEasySol() {
         int zeroPosVer = 0;
 
         for (int j = 0; j < 9; j++) {
-            if (board[i][j]) countHor++;
-            if (board[j][i]) countVer++;
+            if (board[i][j] == 0) {
+                countHor++;
+                zeroPosHor = j;
+            }
+            sumHor += board[i][j];
+            if (board[j][i] == 0) {
+                countVer++;
+                zeroPosVer = j;
+            }
+            sumVer += board[j][i];
         }
-        if (sumHor != 45 || sumVer != 45) return false;
+        if (countHor == 1) { // 답이 명백한 케이스..
+            board[i][zeroPosHor] = 45 - sumHor;
+            changedFlag = true;
+        }
+        if (countVer == 1) {
+            board[zeroPosVer][i] = 45 - sumVer;
+            changedFlag = true;
+        }
     }
     // 구역
     for (int offsetX = 0; offsetX < 9; offsetX += 3) {
         for (int offsetY = 0; offsetY < 9; offsetY += 3) {
             int sumArea = 0;
+            int countZero = 0;
+            int countZeroPosX;
+            int countZeroPosY;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     sumArea += board[i + offsetX][j + offsetY];
+                    if (board[i + offsetX][j + offsetY] == 0) {
+                        countZero++;
+                        countZeroPosX = i + offsetX;
+                        countZeroPosY = j + offsetY;
+                    }
                 }
             }
-            if (sumArea != 45) return false;
+            if (countZero == 1) { // 마찬가지로 답이 명백한 케이스...
+                board[countZeroPosX][countZeroPosY] = 45 - sumArea;
+                changedFlag = true;
+            }
         }
     }
-    return true;
+    return changedFlag;
 }
 
 void static getAns(int startFrom) {
@@ -103,6 +130,9 @@ int main() {
         }
     }
 
+    for (int k = 0; k < 5; k++) {
+        getEasySol();
+    }
     getAns(0);
 
     for (int i = 0; i < 9; i++) {
