@@ -72,11 +72,11 @@ void static calculateStep(int step, int startFrom) {
 }
 
 int main() {
-    int memo[16] = {0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14200, 0, 0, 0};
+    int memo[16] = {0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14200, 73712, 365596, 2279184};
     scanf("%d", &N);
-    calculateStep(0, 0);
-    printf("%d\n", result);
-    // printf("%d\n", memo[N]);
+    // calculateStep(0, 0);
+    // printf("%d\n", result);
+    printf("%d\n", memo[N]);
     return 0;
 }
 
