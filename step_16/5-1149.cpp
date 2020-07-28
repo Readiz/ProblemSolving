@@ -1,30 +1,38 @@
 #include <stdio.h>
-enum Color {
-    undefined = 0;
-    R = 1;
-    G = 2;
-    B = 3;
-};
+#define Color int
+#define undefined 0
+#define R 1
+#define G 2
+#define B 3
 static int N;
-static int R[1001] = {0, };
-static int G[1001] = {0, };
-static int B[1001] = {0, };
+static int cost[4][1001] = {{0, }, };
 static Color house[1001] = {undefined, };
 static int min = 2000000000;
 
-void paint(int pos) {
-    
+static void paint(int pos, int curSum) {
+    if (pos == N) {
+        if (curSum < min) min = curSum;
+        return;
+    }
 
+    for (int color = R; color <= B; color++) {
+        if (pos == 0 || house[pos - 1] != color) { // 마주보는 집끼리 다른 색상을 하도록 함
+            house[pos] = color;
+            int newSum = curSum + cost[color][pos];
+            paint(pos + 1, newSum);
+        }
+    }
     return;
 }
 
 int main() {
     int i = 0;
     for (scanf("%d", &N); i < N; i++) {
-        scanf("%d %d %d", &R[i], &G[i], &B[i]);
+        // 비용 등록
+        scanf("%d %d %d", &cost[R][i], &cost[G][i], &cost[B][i]);
     }
-
-    paint(0);
+    paint(0, 0);
+    printf("%d\n", min);
 
     return 0;
 }
