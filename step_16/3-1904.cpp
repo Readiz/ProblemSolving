@@ -18,16 +18,30 @@ void solve(int pos) {
 
     return;
 }
+int memo[91] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, };
+
+int fib_15746(int i) {
+    if (i == 0) return 0;
+    if (memo[i] != 0) return memo[i];
+    
+    memo[i] = fib_15746(i - 1) + fib_15746(i - 2);
+    if (memo[i] > 15746) {
+        memo[i] -= 15746;
+    }
+    return memo[i];
+}
 
 int main() {
     scanf("%d", &N);
-    solve(0);
-    printf("%d\n", result);
+    // solve(0);
+    // printf("%d\n", result % 15746);
+    printf("%d\n", fib_15746(N + 1));
+    
     return 0;
 }
 /*
 결과 수열
-0 1 2 3 5 8 13 21 34... <-- 피보나치
+0 1 2 3 5 8 13 21 34... <-- 피보나치 + 1의 형태
 */
 
 /*
