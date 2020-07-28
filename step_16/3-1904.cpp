@@ -18,24 +18,29 @@ void solve(int pos) {
 
     return;
 }
-int memo[91] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, };
-
-int fib_15746(int i) {
-    if (i == 0) return 0;
-    if (memo[i] != 0) return memo[i];
-    
-    memo[i] = fib_15746(i - 1) + fib_15746(i - 2);
-    if (memo[i] > 15746) {
-        memo[i] -= 15746;
-    }
-    return memo[i];
-}
 
 int main() {
     scanf("%d", &N);
     // solve(0);
     // printf("%d\n", result % 15746);
-    printf("%d\n", fib_15746(N + 1));
+    // 결국 구하면 피보나치이므로 아래처럼 구한다.
+    int pprev = 0, prev = 1;
+    int cur = 2;
+    int pos = 2;
+    if (N == 0) printf("0\n");
+    else if (N == 1) printf("1\n");
+    else if (N == 2) printf("2\n");
+    else {
+        while (pos < N) {
+            int next = cur + prev;
+            if (next > 15746) next -= 15746;
+            pprev = prev;
+            prev = cur;
+            cur = next;
+            pos++;
+        }
+        printf("%d\n", cur);
+    }
     
     return 0;
 }
