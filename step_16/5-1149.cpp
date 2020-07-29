@@ -19,6 +19,7 @@ static void paint(int pos, int curSum) {
         if (pos == 0 || house[pos - 1] != color) { // 마주보는 집끼리 다른 색상을 하도록 함
             house[pos] = color;
             int newSum = curSum + cost[color][pos];
+            if (newSum > min) return; // 이미 더하고 있는게 구한 min 값 보다 커지고 있다면 추가로 해볼 필요가 없음
             paint(pos + 1, newSum);
         }
     }
