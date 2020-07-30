@@ -9,9 +9,9 @@ void eratos(){
 	prime[0] = prime[1] = 0; // not primes  
 	for (int i = 2; i < 200001; i++) {
 		if (prime[i]) {
-			for (int j = i*i; j < 200001; j += i) {
-                // if (j < 200001)
-    				// prime[j] = 0; 
+			for (int j = i; j < 200001; j += i) {
+                if (j < 200001)
+    			    prime[j] = 0; 
 			}
 		}
 	}
