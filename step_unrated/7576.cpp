@@ -3,6 +3,7 @@
 bool isDebug = false;
 int M, N;
 int board[1001][1001];
+bool visited[1001][1001] = {false, };
 
 typedef struct _pt {
     int x;
@@ -72,40 +73,41 @@ bool checkZero() {
 }
 
 bool isValidPos(int x, int y) {
-    if (x >= 0 && x < M && y >= 0 && y < N) return true;
-    return false;
-}
-
-bool checkNeighbor(int x, int y) {
-    if (!isValidPos(x, y)) return false;
-    if (board[y][x] == 0) { // 0 인 경우 전파한다.
-        board[y][x] = 1;
-        return true;
-    }
+    if (x >= 0 && x < M && y >= 0 && y < N && !visited[y][x] && board[y][x] == 0) return true;
     return false;
 }
 
 bool getNextTick() {
-
+    bool isChanged = false;
     while (getQueueSize() != 0) {
         int x, y;
         dequeue(x, y);
-        
-    }
-
-    bool r = false;
-    for (int y = 0; y < N; y++) {
-        for (int x = 0; x < M; x++) {
-            if (board[y][x] == 1) { // 토마토를 찾았으면
-                 // 인접된 녀석들을 1로 만든다..
-                r = checkNeighbor(x + 1, y) || r;
-                r = checkNeighbor(x - 1, y) || r;
-                r = checkNeighbor(x, y + 1) || r;
-                r = checkNeighbor(x, y - 1) || r;
-            }
+        if (isValidPos(x + 1, y)) {
+            enqueueNext(x + 1, y);
+            board[y][x + 1] = 1;
+            visited[y][x + 1] = true;
+            isChanged = true;
+        }
+        if (isValidPos(x - 1, y)) {
+            enqueueNext(x - 1, y);
+            board[y][x - 1] = 1;
+            visited[y][x - 1] = true;
+            isChanged = true;
+        }
+        if (isValidPos(x, y + 1)) {
+            enqueueNext(x, y + 1);
+            board[y + 1][x] = 1;
+            visited[y + 1][x] = true;
+            isChanged = true;
+        }
+        if (isValidPos(x, y - 1)) {
+            enqueueNext(x, y - 1);
+            board[y - 1][x] = 1;
+            visited[y - 1][x] = true;
+            isChanged = true;
         }
     }
-    return r;
+    return isChanged;
 }
 
 void makeQueue() {
@@ -113,9 +115,18 @@ void makeQueue() {
         for (int x = 0; x < M; x++) {
             if (board[y][x] == 1) {
                 enqueue(x, y);
+                visited[y][x] = true;
             }
         }
     }
+}
+void moveQueue() {
+    queueStart = 0;
+    queueEnd = getQueueNextSize();
+    for (int i = 0; i < getQueueNextSize(); i++) {
+        queue[i] = queueNext[i + queueNextStart];
+    }
+    resetQueueNext();
 }
 
 int main() {
@@ -126,13 +137,13 @@ int main() {
         }
     }
     int time = 0;
-    printBoard();
     makeQueue();
     while (true) {
         if (!getNextTick()) { // 변화가 없으면 break
             break;
         }
         printBoard();
+        moveQueue();
         time++;
     }
     if (checkZero()) {
