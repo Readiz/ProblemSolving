@@ -2,6 +2,7 @@
 #include<algorithm>
 #include<vector>
 #include<ctime>
+#define INF 0x7FFFFFFF
 using namespace std;
  
  
@@ -31,6 +32,10 @@ bool compare(Student a, Student b){
     
 }
 int main(void){
+    int a = INF;
+    int b = INF + 1;
+    int c = INF - 1;
+    printf("%d %d %d\n", a, b, c);
     vector<Student> v;
     
     v.push_back(Student("cc", 10));

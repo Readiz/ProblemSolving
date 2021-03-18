@@ -1,5 +1,5 @@
 #include <stdio.h>
-#ifndef BOJ
+#ifndef ONLINE_JUDGE
     #define READIZ_DEBUG
 #endif
 #ifdef READIZ_DEBUG
