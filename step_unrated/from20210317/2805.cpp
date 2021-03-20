@@ -4,7 +4,7 @@
 #endif
 #ifdef READIZ_DEBUG
     #define printd(...) { printf("[DEBUG] "); printf(__VA_ARGS__); printf("\n"); }
-    inline void testInit() { freopen("input.txt", "rt", stdin); }
+    inline void testInit() { freopen("2805_input.txt", "rt", stdin); }
     #define MAIN_START int main(){testInit();while(!feof(stdin)){
     #define MAIN_END } return 0;}
 #else
@@ -12,6 +12,7 @@
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
+typedef unsigned long long ull;
 
 int N, M;
 void SWAP(int& a, int& b) {
@@ -42,16 +43,22 @@ void quickSort(int arr[], int left, int right) {
 }
 // 오름차순 정렬된 배열에서 특정 수 찾기..
 int find(int arr[], int start, int end, int num) {
-    int mid = (start + end) / 2;
-    if (arr[mid] == num) {
-        return mid;
-    } else if (arr[mid] > num) {
-        if (mid == end) return -1;
-        return find(arr, start, mid, num);
-    } else {
-        if (mid == start) return -1;
-        return find(arr, mid, end, num);
+    while (end - start >= 0) {
+        int mid = (start + end) / 2;
+        if (arr[mid] == num) {
+            // 그 이전에 같은 수가 만약 발견 되면 한번 더 이분탐색..
+            if (mid - 1 >= 0 && arr[mid - 1] == num) {
+                end = mid;
+                continue;
+            }
+            return mid;
+        } else if (arr[mid] > num) {
+            end = mid;
+        } else {
+            start = mid;
+        }
     }
+    return -1;
 }
 
 MAIN_START
@@ -68,30 +75,40 @@ MAIN_START
         A[i] = tmp;
     }
     quickSort(A, 0, N - 1);
-    // printd("%d", find(A, 0, N, 15));
-    // printd("%d", find(A, 0, N, 17));
-    // printd("%d", find(A, 0, N, 10));
-    // printd("%d", find(A, 0, N, 20));
-    // printd("%d", find(A, 0, N, 16));
-    // printd("%d", find(A, 0, N, -1));
-    // printd("%d", find(A, 0, N, 100));
-    // return 0;
 
+    int prevh = -1;
     int h = A[N - 1];
     int pos = find(A, 0, N, h);
     int affected = N - pos;
-    int sum = 0;
-    printd("h: %d, affected: %d, sum: %d", h, affected, sum);
+    ull sum = 0;
+    printd("h: %d, affected: %d, sum: %llu", h, affected, sum);
     while(true) {
-        if (sum >= M) break;
-        h--;
-        int newPos = find(A, 0, N, h);
-        if (newPos != -1) {
-            affected = N - newPos;
-            pos = newPos;
+        prevh = h;
+        if (pos == 0) {
+            h = 0; // 더 이전인 녀석이 없으므로 h를 0으로 세팅하고 계산.
+        } else {
+            h = A[pos - 1]; // 그 다음 높이의 녀석을 구해둔다.
         }
-        sum += affected;
-        printd("h: %d, affected: %d, sum: %d", h, affected, sum);
+        // 종료 조건
+        ull tmpSum = sum + (ull)affected * ((ull)prevh - (ull)h);
+        if (tmpSum >= (ull)M) {
+            // 정확한 h를 구한다.
+            printd("minh was found!! current sum: %llu, calc exact h...", tmpSum);
+            ull a = (ull)affected * (ull)prevh - (ull)M + sum;
+            ull tmpH = a / affected;
+            h = (int) tmpH;
+            break;
+        } else {
+            sum += affected * (prevh - h);
+        }
+        int newPos = find(A, 0, N, h);
+        affected = N - newPos;
+        pos = newPos;
+        printd("h: %d, affected: %d, sum: %llu", h, affected, sum);
+        if (h == 0) {
+            printd("h: 0, but cannot found M... maybe TC is wrong.");
+            break;
+        }
     }
     printf("%d\n", h);
 MAIN_END
