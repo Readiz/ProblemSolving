@@ -1,28 +1,26 @@
 #include <stdio.h>
+#ifndef ONLINE_JUDGE
+    #define READIZ_DEBUG
+#endif
+#ifdef READIZ_DEBUG
+    #define printd(...) { printf("[DEBUG] "); printf(__VA_ARGS__); printf("\n"); }
+    inline void testInit() { freopen("3-1904_input.txt", "rt", stdin); }
+    #define MAIN_START int main(){testInit();while(!feof(stdin)){
+    #define MAIN_END } return 0;}
+#else
+    #define printd(...)
+    #define MAIN_START int main(){
+    #define MAIN_END return 0;}
+#endif
 
 int N;
-int result = 0;
 
-void solve(int pos) {
-    if (pos == N) { 
-        result ++;
-        return;
-    }
-    else if (pos == N + 1)
-        return;
-    
-    // 1을 붙이는 case
-    solve(pos + 1);
-    // 0를 붙이는 case
-    solve(pos + 2);
-
-    return;
-}
-
-int main() {
+MAIN_START
+    printd("--------------------------");
+    printd("TEST START!!!");
     scanf("%d", &N);
-    // solve(0);
-    // printf("%d\n", result % 15746);
+    printd("N: %d", N);
+    printd("--------------------------");
     // 결국 구하면 피보나치이므로 아래처럼 구한다.
     int pprev = 0, prev = 1;
     int cur = 2;
@@ -33,7 +31,7 @@ int main() {
     else {
         while (pos < N) {
             int next = cur + prev;
-            if (next > 15746) next -= 15746;
+            while (next >= 15746) next -= 15746;
             pprev = prev;
             prev = cur;
             cur = next;
@@ -41,9 +39,7 @@ int main() {
         }
         printf("%d\n", cur);
     }
-    
-    return 0;
-}
+MAIN_END
 /*
 결과 수열
 0 1 2 3 5 8 13 21 34... <-- 피보나치 + 1의 형태
