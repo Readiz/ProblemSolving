@@ -1,4 +1,3 @@
-const { addListener } = require('process');
 const readline = require('readline');
 
 const rl = readline.createInterface({
