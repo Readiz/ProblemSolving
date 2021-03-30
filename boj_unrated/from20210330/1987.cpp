@@ -55,6 +55,7 @@ void DFS(int x, int y) {
     for (int i = 0; i < 4; i++) {
         int newX = x + dx[i], newY = y + dy[i];
         if (checkPos(newX, newY)) {
+            // 백트래킹의 일종. 사용되지 않은 알파벳에 대해서만 탐색을 이어나간다.
             if (!visitedChar[atoi(map[newY][newX])]) {
                 visitedChar[atoi(map[newY][newX])] = true;
                 visited[newY][newX] = true;
