@@ -1,6 +1,6 @@
 #include <stdio.h>
 #ifndef ONLINE_JUDGE
-    // #define READIZ_DEBUG
+    #define READIZ_DEBUG
 #endif
 #ifdef READIZ_DEBUG
     #define printd(...) { printf("[DEBUG] "); printf(__VA_ARGS__); printf("\n"); }

@@ -34,3 +34,25 @@ FFT는 convolution을 빠르게 해 주는 것이지만, PS에서는 거의 대�
 설명: https://topology-blog.tistory.com/6
 
 -> 예시 C++ 솔루션: https://www.acmicpc.net/source/7347729
+
+
+--------------------------------------------
+각 형들 MIN & MAX 표현
+
+https://www.keil.com/support/man/docs/armcc/armcc_chr1359125038144.htm
+CHAR_MAX	Maximum value of char	255	0xFF
+CHAR_MIN	Minimum value of char	0	0x00
+SCHAR_MAX	Maximum value of signed char	127	0x7F
+SCHAR_MIN	Minimum value of signed char	–128	0x80
+UCHAR_MAX	Maximum value of unsigned char	255	0xFF
+SHRT_MAX	Maximum value of short	32 767	0x7FFF
+SHRT_MIN	Minimum value of short	–32 768	0x8000
+USHRT_MAX	Maximum value of unsigned short	65 535	0xFFFF
+INT_MAX 	Maximum value of int	2 147 483 647	0x7FFFFFFF
+INT_MIN 	Minimum value of int	–2 147 483 648	0x80000000
+LONG_MAX	Maximum value of long	2 147 483 647	0x7FFFFFFF
+LONG_MIN	Minimum value of long	–2 147 483 648	0x80000000
+ULONG_MAX	Maximum value of unsigned long	4 294 967 295	0xFFFFFFFF
+LLONG_MAX	Maximum value of long long	9.2E+18	0x7FFFFFFFFFFFFFFF
+LLONG_MIN	Minimum value of long long	–9.2E+18	0x8000000000000000
+ULLONG_MAX	Maximum value of unsigned long long	1.8E+19	0xFFFFFFFFFFFFFFFF
