@@ -79,7 +79,7 @@ console.log(1);
 //         console.log('D -1');
 //     }
 // }
-N = 1000000; // 커맨드 수
+N = 100; // 커맨드 수
 console.log(N);
 for (let i = 0; i < N; i++) {
     const cmd = getRandomInt(0, 4);
