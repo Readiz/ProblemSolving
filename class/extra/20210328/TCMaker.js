@@ -1,6 +1,4 @@
-function solution(scanner) {
-    const A = scanner.readLine();
-    const B = scanner.readLine();
+function solution(A, B) {
     let A10 = 0n; let B10 = 0n;
     let posA = 1n; let posB = 1n;
     for (let i = A.length - 1; i >= 0; i--) {
@@ -29,10 +27,31 @@ function solution(scanner) {
     return strResult.split('').reverse().join('');
 }
 
+function getRadix32Number() {
+    const v = Math.floor(Math.random() * 32);
+    return String(v.toString(32)).toUpperCase();
+}
+
+function getRandomNum(len) {
+    let rnum = '';
+    for (let i = 0; i < len; i++) {
+        rnum += getRadix32Number(32);
+    }
+    return rnum;
+}
+
 
 function makeTC(N) {
     const r = [];
 
+
+    for (let i = 0; i < N; i++) {
+        const A = getRandomNum(15000);
+        const B = getRandomNum(15000);
+        r.push(A);
+        r.push(B);
+        r.push(solution(A, B));
+    }
 
     return r.join('\n');
 }
