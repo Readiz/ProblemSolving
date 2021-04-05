@@ -1,0 +1,18 @@
+11
+    set n = 22
+    set s = 1
+    while n > 1
+        if n % 2 == 0
+            set n = n / 2
+        else
+            set n = 3 * n + 1
+        end if
+        set s = s + 1
+    end while
+    print s
+1
+    print ((2*4-6/3)*(3*5+8/4))-(2+3)+1/2*0
+2
+    set x = 5344
+    print x / 10
+0
