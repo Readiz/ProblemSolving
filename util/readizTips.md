@@ -68,3 +68,53 @@ ULLONG_MAX	Maximum value of unsigned long long	1.8E+19	0xFFFFFFFFFFFFFFFF
 세그트리보다 구조도 간단하고, 사용하기도 편함. (비트 연산 활용)
 다만, 활용도는 떨어지는 단점이 있다.
 구간합 풀이 예) https://www.acmicpc.net/source/28008395
+
+
+
+----------------------------------------------
+이진 탐색 관련 유의할 점 모음
+http://blog.weirdx.io/post/3121
+
+1. Mid Overflow
+  - int mid = low + (high - low) / 2 사용
+  - int mid = (low + high) >> 1 사용
+
+2. 경계값 문제
+  - left: 0 <= i < n / 2
+  - right: (n + 1) / 2 <= i < n
+  -... 으로 두면, 대부분 문제는 발생하지 않는다. 홀수 / 짝수에서 어그러지니 유의.
+  - 특히, right가 n / 2 + 1 이 아님에 유의. 홀 / 짝수 둘 다 고려하면, (n + 1) / 2 부터 시작하는 것이 맞다.
+  - ex) n = 3 일 경우
+    - left: 0 <= i < 1
+    - right: 2 <= i < n
+  - ex) n = 4 일 경우
+    - left: 0 <= i < 2
+    - right: 2<= i < 4
+  - 중간 포지션을 기점으로 어떻게 해야하는지에 대한 내용이니, 반드시 기억. 홀수 일때는 중간 값을 제외, 짝수 일때는 따로 포함 x 한다고 생각.
+
+3. 실제 구현 (반복문이 좋다)
+```c++
+int binary_search(int* arr, int length, int value) {
+
+    if (arr == nullptr || length < 0)
+        return -1;
+
+    int left = 0;
+    int right = length - 1;
+    int mid;
+
+    while(left <= right) {  // 여기서 left <= right 로 설정함에 유의.. 원소가 {0, 1} 두개이면, 1을 찾을 때 돌지 않음. (left = right가 되면 loop 탈출하므로..)
+        mid = left + (right - left) / 2;
+
+        if(arr[mid] == value) {
+            return mid;
+        } else if (arr[mid] < value) {
+            left = mid + 1;
+        } else if (arr[mid] > value) {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+```
