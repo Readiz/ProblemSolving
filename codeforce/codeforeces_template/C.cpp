@@ -22,5 +22,4 @@ MAIN_START
     for (int TC = 0; TC < tc; TC++) {
 
     }
-    return 0;
 MAIN_END

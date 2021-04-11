@@ -9,6 +9,10 @@ typedef struct name {
     char name[20];
 } Name;
 
+typedef struct arr {
+    int a[100];
+} Arr;
+
 int main() {
     Point x = {1, 2};
     Point y;
@@ -41,6 +45,19 @@ int main() {
     
     printf("%s\n", a.name);
     printf("%s\n", b.name); // Bob
+
+    Arr arrA;
+    arrA.a[0] = 1;
+    arrA.a[1] = 100;
+    arrA.a[2] = 45;
+    arrA.a[3] = 3;
+
+    Arr arrB = arrA;
+
+    printf("%d\n", arrB.a[0]);
+    printf("%d\n", arrB.a[1]);
+    printf("%d\n", arrB.a[2]);
+    printf("%d\n", arrB.a[3]);
 
     return 0;
 }

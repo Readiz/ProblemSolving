@@ -60,3 +60,75 @@ public:
         }
     }
 };
+
+template<class T>
+class DArray {
+    T* n;
+    int capacity;
+public:
+    int size;
+    DArray() {
+        size = 0;
+        capacity = 100;
+        n = new T[capacity];
+    }
+    void push(T item) {
+        // 공간 다 찼을 경우.. 늘린다.
+        if (size == capacity) {
+            capacity *= 2; // 두배로 늘린다.
+            T* newNodes = new T[capacity];
+            for (int i = 0; i < size; i++) {
+                newNodes[i] = n[i]; // 기존 값 복사
+            }
+            delete[] n;
+            n = newNodes;
+        }
+        n[size++] = item;
+    }
+    T& pop() {
+        return n[--size];
+    }
+    T& operator[] (int idx) {
+        return n[idx];
+    }
+    ~DArray() {
+        delete[] n;
+    }
+};
+
+// DArray가 사실 Stack 그 자체임.
+template<class T>
+class Stack {
+    DArray<T> db;
+public:
+    Stack() {
+    };
+    void push(T n) {
+        db.push(n);
+    }
+    T& pop() {
+        return db.pop();
+    }
+    int getSize() {
+        return db.size;
+    }
+};
+
+template<class T>
+class Queue {
+    DArray<T> db;
+    int startPos;
+public:
+    Queue() {
+        startPos = 0;
+    };
+    void enqueue(T n) {
+        db.push(n);
+    }
+    T& dequeue() {
+        return db[startPos++];
+    }
+    int getSize() {
+        return db.size - startPos;
+    }
+};
