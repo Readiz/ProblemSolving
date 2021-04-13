@@ -22,6 +22,17 @@ MAIN_START
     int tc;
     scanf("%d", &tc);
     for (int TC = 0; TC < tc; TC++) {
-
+        int n;
+        scanf("%d", &n);
+        int type1Cnt = 0, type2Cnt = 0, type3Cnt = 0;
+        for (int i = 0; i < n; i++) {
+            int tmp;
+            scanf("%d", &tmp);
+            if (tmp == 1) type1Cnt++;
+            else if (tmp == 2) type2Cnt++;
+            else type3Cnt++;
+        }
+        printd("%d %d %d", type1Cnt, type2Cnt, type3Cnt);
+        printf("%d\n", type1Cnt + type3Cnt);
     }
 MAIN_END

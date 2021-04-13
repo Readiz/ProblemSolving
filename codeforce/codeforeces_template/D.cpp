@@ -12,6 +12,8 @@
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
+typedef unsigned long long ull;
+typedef long long ll;
 
 MAIN_START
     printd("--------------------------");
