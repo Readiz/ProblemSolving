@@ -132,3 +132,47 @@ public:
         return db.size - startPos;
     }
 };
+
+
+// Queue version 2
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+template<class T>
+class Queue {
+    T* n;
+    int cap;
+    int size;
+    int startPos;
+public:
+    Queue() {
+        init();
+    }
+    void init() {
+        cap = 1000;
+        size = 0;
+        startPos = 0;
+        n = new T[cap];
+    }
+    void enqueue(T data) {
+        if (size == cap) {
+            cap *= 2;
+            T* newNodes = new T[cap];
+            for (int i = 0; i < size; i++) {
+                newNodes[i] = n[i];
+            }
+            delete[] n;
+            n = newNodes;
+        }
+        n[size++] = data;
+    }
+    T& dequeue() {
+        return n[startPos++];
+    }
+    int getSize() {
+        return size - startPos;
+    }
+};
+Queue<Point> q;
