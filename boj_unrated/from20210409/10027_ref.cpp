@@ -24,6 +24,7 @@ struct HTMLelement {
 		int hash = 0;
 		for(char *ptr = str; *ptr; ++ptr)
 			hash = hash * 71 + *ptr - 'a' + 1;
+		printf("Hash %s -> %d\n", str, hash);
 		classes.insert(hash);
 	}
 };
