@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <iostream>
 #include <vector>
 #include <cstring>
@@ -21,12 +22,13 @@ void eratosthenes() {
         }
     }
     for(int i=2; i<=MAX; i++) {
-        if(isPrime[i])
+        if(isPrime[i])  {
             prime.push_back(i);
+            printf("[DEBUG] %d\n", i);
+        }
     }
 }
 int main() {
-    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     eratosthenes();
     dp[0][0]=1;
     // dp[n][k] = n을 k개의 소수의 합으로 만들수 있는 갯수
@@ -38,6 +40,14 @@ int main() {
             }
         }
     }
+    for (int i = 0; i < 30; i++) {
+        cout << prime[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 30; i++) {
+        cout << dp[i][1] << " ";
+    }
+    cout << endl;
     for (int i = 0; i < 30; i++) {
         cout << dp[i][2] << " ";
     }

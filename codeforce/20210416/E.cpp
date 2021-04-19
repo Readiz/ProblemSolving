@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 #ifndef ONLINE_JUDGE
     #define READIZ_DEBUG
 #endif
 #ifdef READIZ_DEBUG
     #define printd(...) { printf("[DEBUG] "); printf(__VA_ARGS__); printf("\n"); }
-    inline void testInit() { freopen("B_input.txt", "rt", stdin); }
+    inline void testInit() { freopen("E_input.txt", "rt", stdin); }
     #define MAIN_START int main(){testInit();while(!feof(stdin)){
     #define MAIN_END } return 0;}
 #else
@@ -12,9 +15,11 @@
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
-#define MOD 1'000'000'007
 typedef unsigned long long ull;
 typedef long long ll;
+
+ull f[10001]; // 1! ~ 10000!
+bool check[100001]; // 1~N까지의 숫자가 순열에 있는지 없는지 확인하는 변수
 
 MAIN_START
     printd("--------------------------");
@@ -23,13 +28,8 @@ MAIN_START
     int tc;
     scanf("%d", &tc);
     for (int TC = 0; TC < tc; TC++) {
-        ull n, k;
-        scanf("%llu %llu", &n, &k);
-        ull r = 1;
-        while (k-- > 0) {
-            r *= n;
-            r %= MOD;
-        }
-        printf("%llu\n", r);
+        ull N;
+        scanf("%llu", &N);
+
     }
 MAIN_END

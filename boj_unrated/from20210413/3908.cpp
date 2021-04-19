@@ -25,11 +25,12 @@
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
+typedef unsigned long long ull;
 
 int numOfPrimes;
 int primesMap[1121] = {-1, -1, 0, }; // -1: 소수 아님 / 1: 소수 / 0: 결정안됨
 int primes[1000] = {0, };
-int dp[1121][15] = {0, };
+ull dp[1121][15] = {0, };
 
 int eratos(int N) {
     int p = 0;
@@ -37,7 +38,6 @@ int eratos(int N) {
         if (primesMap[i] == 0) {
             primesMap[i] = 1; // 처음 도달하면, 소수
             primes[p++] = i;
-            dp[i][1] = 1;
         }
         // 새로운 소수가 발견될 때마다만 배수들을 채로 쳐낸다.
         if (primesMap[i] != 1) continue;
@@ -61,27 +61,25 @@ MAIN_START
     for (int i = 0; i < numOfPrimes; i++) {
         printd("%d", primes[i]);
     }
-
+    dp[0][0] = 1;
     // 전체 사이즈가 크지 않은 경우가 dp 쓰기 딱 좋은 경우임.
     for (int n = 0; n < numOfPrimes; n++) {
-        for (int m = 1120; m >= primes[n] + 1; m--) {
+        // 소수 하나씩 전체 배열에 늘려가면서, 경우의 수를 찾아간다..
+        for (int m = 1120; m >= primes[n]; m--) {
+            // dp[primes[n]][1] = 1; // 자기 자신의 합은 자기 자신이 되는 1가지 밖에 없음 (소수 조건..)
             // 2단계 부터는, 이전 단계 소수의 합의 경우의 수에 새로운 소수를 합한 것이 경우의 수가 된다.
-            for (int d = 2; d <= 14; d++) { // 1단계는 eratos 단계에서 이미 계산됨
+            for (int d = 1; d <= 14; d++) {
                 // 신규 소수 primes[n] 을 더하고 있는 상황..
                 dp[m][d] += dp[m - primes[n]][d - 1];
             }
         }
     }
-    for (int i = 0; i < 30; i++) {
-        printf("%d ", dp[i][2]);
-    }
-    printf("\n");
 
     for (int tc = 0; tc < T; tc++) {
         int N, D;
         scanf("%d %d", &N, &D);
         printd("N: %d, D: %d", N, D);
-        printf("%d\n", dp[N][D]);
+        printf("%llu\n", dp[N][D]);
     }
 MAIN_END
 

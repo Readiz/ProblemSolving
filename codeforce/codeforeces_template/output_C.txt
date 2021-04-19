@@ -1,0 +1,1443 @@
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 2
+-------------------------------
+1
+1
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 3
+-------------------------------
+1
+1
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 4
+-------------------------------
+1
+1
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 5
+-------------------------------
+[DEBUG] 6 => One of the combination is found!
+3
+1 2 3   => 4를 곱하면, 나머지가 24 -> 4가 되므로 안됨..
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 6
+-------------------------------
+1   => 5를 곱하면 나머지가 1이 아님..
+1
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 7
+-------------------------------
+[DEBUG] 8 => One of the combination is found!
+3
+1 2 4 
+[DEBUG] 15 => One of the combination is found!
+3
+1 3 5 
+[DEBUG] 36 => One of the combination is found!
+4
+1 2 3 6 
+[DEBUG] 120 => One of the combination is found!
+5
+1 2 3 4 5 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 8
+-------------------------------
+[DEBUG] 105 => One of the combination is found!
+4
+1 3 5 7 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 9
+-------------------------------
+[DEBUG] 10 => One of the combination is found!
+3
+1 2 5 
+[DEBUG] 64 => One of the combination is found!
+4
+1 2 4 8 
+[DEBUG] 280 => One of the combination is found!
+5
+1 2 4 5 7 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 10
+-------------------------------
+[DEBUG] 21 => One of the combination is found!
+3
+1 3 7 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 11
+-------------------------------
+[DEBUG] 56 => One of the combination is found!
+4
+1 2 4 7 
+[DEBUG] 100 => One of the combination is found!
+4
+1 2 5 10 
+[DEBUG] 144 => One of the combination is found!
+5
+1 2 3 4 6 
+[DEBUG] 210 => One of the combination is found!
+5
+1 2 3 5 7 
+[DEBUG] 320 => One of the combination is found!
+5
+1 2 4 5 8 
+[DEBUG] 1200 => One of the combination is found!
+6
+1 2 3 4 5 10 
+[DEBUG] 6480 => One of the combination is found!
+7
+1 2 3 4 5 6 9 
+[DEBUG] 8064 => One of the combination is found!
+7
+1 2 3 4 6 7 8 
+[DEBUG] 67200 => One of the combination is found!
+8
+1 2 3 4 5 7 8 10 
+[DEBUG] 362880 => One of the combination is found!
+9
+1 2 3 4 5 6 7 8 9 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 12
+-------------------------------
+[DEBUG] 385 => One of the combination is found!
+4
+1 5 7 11 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 13
+-------------------------------
+[DEBUG] 14 => One of the combination is found!
+3
+1 2 7 
+[DEBUG] 27 => One of the combination is found!
+3
+1 3 9 
+[DEBUG] 40 => One of the combination is found!
+4
+1 2 4 5 
+[DEBUG] 66 => One of the combination is found!
+4
+1 2 3 11 
+[DEBUG] 105 => One of the combination is found!
+4
+1 3 5 7 
+[DEBUG] 144 => One of the combination is found!
+5
+1 2 3 4 6 
+[DEBUG] 300 => One of the combination is found!
+5
+1 2 3 5 10 
+[DEBUG] 378 => One of the combination is found!
+5
+1 2 3 7 9 
+[DEBUG] 1080 => One of the combination is found!
+6
+1 2 3 4 5 9 
+[DEBUG] 4928 => One of the combination is found!
+6
+1 2 4 7 8 11 
+[DEBUG] 5760 => One of the combination is found!
+7
+1 2 3 4 5 6 8 
+[DEBUG] 22400 => One of the combination is found!
+7
+1 2 4 5 7 8 10 
+[DEBUG] 24948 => One of the combination is found!
+7
+1 2 3 6 7 9 11 
+[DEBUG] 71280 => One of the combination is found!
+8
+1 2 3 4 5 6 9 11 
+[DEBUG] 105600 => One of the combination is found!
+8
+1 2 3 4 5 8 10 11 
+[DEBUG] 133056 => One of the combination is found!
+8
+1 2 3 4 6 7 11 12 
+[DEBUG] 1368576 => One of the combination is found!
+9
+1 2 3 4 6 8 9 11 12 
+[DEBUG] 5322240 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 11 12 
+[DEBUG] 6220800 => One of the combination is found!
+10
+1 2 3 4 5 6 8 9 10 12 
+[DEBUG] 39916800 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 10 11 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 14
+-------------------------------
+[DEBUG] 15 => One of the combination is found!
+3
+1 3 5 
+[DEBUG] 351 => One of the combination is found!
+4
+1 3 9 13 
+[DEBUG] 715 => One of the combination is found!
+4
+1 5 11 13 
+[DEBUG] 1485 => One of the combination is found!
+5
+1 3 5 9 11 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 15
+-------------------------------
+[DEBUG] 91 => One of the combination is found!
+3
+1 7 13 
+[DEBUG] 196 => One of the combination is found!
+4
+1 2 7 14 
+[DEBUG] 286 => One of the combination is found!
+4
+1 2 11 13 
+[DEBUG] 616 => One of the combination is found!
+5
+1 2 4 7 11 
+[DEBUG] 896896 => One of the combination is found!
+8
+1 2 4 7 8 11 13 14 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 16
+-------------------------------
+[DEBUG] 33 => One of the combination is found!
+3
+1 3 11 
+[DEBUG] 65 => One of the combination is found!
+3
+1 5 13 
+[DEBUG] 225 => One of the combination is found!
+4
+1 3 5 15 
+[DEBUG] 273 => One of the combination is found!
+4
+1 3 7 13 
+[DEBUG] 385 => One of the combination is found!
+4
+1 5 7 11 
+[DEBUG] 945 => One of the combination is found!
+5
+1 3 5 7 9 
+[DEBUG] 2145 => One of the combination is found!
+5
+1 3 5 11 13 
+[DEBUG] 2027025 => One of the combination is found!
+8
+1 3 5 7 9 11 13 15 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 17
+-------------------------------
+[DEBUG] 35 => One of the combination is found!
+3
+1 5 7 
+[DEBUG] 120 => One of the combination is found!
+5
+1 2 3 4 5 
+[DEBUG] 154 => One of the combination is found!
+4
+1 2 7 11 
+[DEBUG] 273 => One of the combination is found!
+4
+1 3 7 13 
+[DEBUG] 324 => One of the combination is found!
+5
+1 2 3 6 9 
+[DEBUG] 715 => One of the combination is found!
+4
+1 5 11 13 
+[DEBUG] 1344 => One of the combination is found!
+6
+1 2 3 4 7 8 
+[DEBUG] 2772 => One of the combination is found!
+6
+1 2 3 6 7 11 
+[DEBUG] 2925 => One of the combination is found!
+5
+1 3 5 13 15 
+[DEBUG] 3520 => One of the combination is found!
+6
+1 2 4 5 8 11 
+[DEBUG] 4914 => One of the combination is found!
+6
+1 2 3 7 9 13 
+[DEBUG] 8008 => One of the combination is found!
+6
+1 2 4 7 11 13 
+[DEBUG] 11340 => One of the combination is found!
+7
+1 2 3 5 6 7 9 
+[DEBUG] 13312 => One of the combination is found!
+6
+1 2 4 8 13 16 
+[DEBUG] 16848 => One of the combination is found!
+7
+1 2 3 4 6 9 13 
+[DEBUG] 27456 => One of the combination is found!
+7
+1 2 3 4 8 11 13 
+[DEBUG] 29700 => One of the combination is found!
+7
+1 2 3 5 6 11 15 
+[DEBUG] 41600 => One of the combination is found!
+7
+1 2 4 5 8 10 13 
+[DEBUG] 52650 => One of the combination is found!
+7
+1 2 3 5 9 13 15 
+[DEBUG] 63360 => One of the combination is found!
+8
+1 2 3 4 5 6 8 11 
+[DEBUG] 75600 => One of the combination is found!
+8
+1 2 3 4 5 6 7 15 
+[DEBUG] 100352 => One of the combination is found!
+7
+1 2 4 7 8 14 16 
+[DEBUG] 112320 => One of the combination is found!
+8
+1 2 3 4 5 6 12 13 
+[DEBUG] 127008 => One of the combination is found!
+8
+1 2 3 4 6 7 9 14 
+[DEBUG] 144144 => One of the combination is found!
+8
+1 2 3 4 6 7 11 13 
+[DEBUG] 155925 => One of the combination is found!
+7
+1 3 5 7 9 11 15 
+[DEBUG] 171072 => One of the combination is found!
+8
+1 2 3 4 6 9 11 12 
+[DEBUG] 206976 => One of the combination is found!
+8
+1 2 3 4 7 8 11 14 
+[DEBUG] 231660 => One of the combination is found!
+8
+1 2 3 5 6 9 11 13 
+[DEBUG] 239616 => One of the combination is found!
+8
+1 2 3 4 6 8 13 16 
+[DEBUG] 313600 => One of the combination is found!
+8
+1 2 4 5 7 8 10 14 
+[DEBUG] 450450 => One of the combination is found!
+8
+1 2 3 5 7 11 13 15 
+[DEBUG] 465920 => One of the combination is found!
+8
+1 2 4 5 7 8 13 16 
+[DEBUG] 589680 => One of the combination is found!
+9
+1 2 3 4 5 6 7 9 13 
+[DEBUG] 748800 => One of the combination is found!
+9
+1 2 3 4 5 6 8 10 13 
+[DEBUG] 960960 => One of the combination is found!
+9
+1 2 3 4 5 7 8 11 13 
+[DEBUG] 1075200 => One of the combination is found!
+9
+1 2 3 4 5 7 8 10 16 
+[DEBUG] 1257984 => One of the combination is found!
+9
+1 2 3 4 6 7 8 12 13 
+[DEBUG] 1544400 => One of the combination is found!
+9
+1 2 3 4 5 6 11 13 15 
+[DEBUG] 1806336 => One of the combination is found!
+9
+1 2 3 4 6 7 8 14 16 
+[DEBUG] 2433024 => One of the combination is found!
+9
+1 2 3 4 6 8 11 12 16 
+[DEBUG] 5644800 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 10 14 
+[DEBUG] 5987520 => One of the combination is found!
+10
+1 2 3 4 5 6 7 9 11 12 
+[DEBUG] 7603200 => One of the combination is found!
+10
+1 2 3 4 5 6 8 10 11 12 
+[DEBUG] 8386560 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 13 16 
+[DEBUG] 9953280 => One of the combination is found!
+10
+1 2 3 4 5 6 8 9 12 16 
+[DEBUG] 12773376 => One of the combination is found!
+10
+1 2 3 4 6 7 8 9 11 16 
+[DEBUG] 21964800 => One of the combination is found!
+10
+1 2 3 4 5 8 10 11 13 16 
+[DEBUG] 39916800 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 10 11 
+[DEBUG] 70761600 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 13 15 
+[DEBUG] 71751680 => One of the combination is found!
+10
+1 2 4 5 7 8 11 13 14 16 
+[DEBUG] 85155840 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 11 12 16 
+[DEBUG] 90810720 => One of the combination is found!
+11
+1 2 3 4 5 6 7 9 11 13 14 
+[DEBUG] 137592000 => One of the combination is found!
+11
+1 2 3 4 5 6 7 10 13 14 15 
+[DEBUG] 165580800 => One of the combination is found!
+11
+1 2 3 4 5 7 8 10 11 14 16 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 18
+-------------------------------
+[DEBUG] 55 => One of the combination is found!
+3
+1 5 11 
+[DEBUG] 91 => One of the combination is found!
+3
+1 7 13 
+[DEBUG] 595 => One of the combination is found!
+4
+1 5 7 17 
+[DEBUG] 2431 => One of the combination is found!
+4
+1 11 13 17 
+[DEBUG] 5005 => One of the combination is found!
+5
+1 5 7 11 13 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 19
+-------------------------------
+[DEBUG] 39 => One of the combination is found!
+3
+1 3 13 
+[DEBUG] 77 => One of the combination is found!
+3
+1 7 11 
+[DEBUG] 210 => One of the combination is found!
+5
+1 2 3 5 7 
+[DEBUG] 286 => One of the combination is found!
+4
+1 2 11 13 
+[DEBUG] 324 => One of the combination is found!
+5
+1 2 3 6 9 
+[DEBUG] 400 => One of the combination is found!
+5
+1 2 4 5 10 
+[DEBUG] 704 => One of the combination is found!
+5
+1 2 4 8 11 
+[DEBUG] 1008 => One of the combination is found!
+6
+1 2 3 4 6 7 
+[DEBUG] 1122 => One of the combination is found!
+5
+1 2 3 11 17 
+[DEBUG] 1768 => One of the combination is found!
+5
+1 2 4 13 17 
+[DEBUG] 2376 => One of the combination is found!
+6
+1 2 3 4 9 11 
+[DEBUG] 3003 => One of the combination is found!
+5
+1 3 7 11 13 
+[DEBUG] 3060 => One of the combination is found!
+6
+1 2 3 5 6 17 
+[DEBUG] 5720 => One of the combination is found!
+6
+1 2 4 5 11 13 
+[DEBUG] 5967 => One of the combination is found!
+5
+1 3 9 13 17 
+[DEBUG] 6480 => One of the combination is found!
+7
+1 2 3 4 5 6 9 
+[DEBUG] 14175 => One of the combination is found!
+6
+1 3 5 7 9 15 
+[DEBUG] 15600 => One of the combination is found!
+7
+1 2 3 4 5 10 13 
+[DEBUG] 19305 => One of the combination is found!
+6
+1 3 5 9 11 13 
+[DEBUG] 22440 => One of the combination is found!
+7
+1 2 3 4 5 11 17 
+[DEBUG] 24948 => One of the combination is found!
+7
+1 2 3 6 7 9 11 
+[DEBUG] 27456 => One of the combination is found!
+7
+1 2 3 4 8 11 13 
+[DEBUG] 30800 => One of the combination is found!
+7
+1 2 4 5 7 10 11 
+[DEBUG] 32130 => One of the combination is found!
+7
+1 2 3 5 7 9 17 
+[DEBUG] 36652 => One of the combination is found!
+6
+1 2 7 11 14 17 
+[DEBUG] 52650 => One of the combination is found!
+7
+1 2 3 5 9 13 15 
+[DEBUG] 74880 => One of the combination is found!
+8
+1 2 3 4 5 6 8 13 
+[DEBUG] 87040 => One of the combination is found!
+7
+1 2 4 5 8 16 17 
+[DEBUG] 96768 => One of the combination is found!
+8
+1 2 3 4 6 7 8 12 
+[DEBUG] 136136 => One of the combination is found!
+7
+1 2 4 7 11 13 17 
+[DEBUG] 154224 => One of the combination is found!
+8
+1 2 3 4 6 7 9 17 
+[DEBUG] 163800 => One of the combination is found!
+8
+1 2 3 4 5 7 13 15 
+[DEBUG] 235620 => One of the combination is found!
+8
+1 2 3 5 6 7 11 17 
+[DEBUG] 301056 => One of the combination is found!
+8
+1 2 3 4 7 8 14 16 
+[DEBUG] 386100 => One of the combination is found!
+8
+1 2 3 5 6 11 13 15 
+[DEBUG] 403200 => One of the combination is found!
+9
+1 2 3 4 5 6 7 8 10 
+[DEBUG] 459459 => One of the combination is found!
+7
+1 3 7 9 11 13 17 
+[DEBUG] 498960 => One of the combination is found!
+9
+1 2 3 4 5 6 7 9 11 
+[DEBUG] 509600 => One of the combination is found!
+8
+1 2 4 5 7 10 13 14 
+[DEBUG] 622080 => One of the combination is found!
+9
+1 2 3 4 5 6 8 9 12 
+[DEBUG] 707200 => One of the combination is found!
+8
+1 2 4 5 8 10 13 17 
+[DEBUG] 733040 => One of the combination is found!
+8
+1 2 4 5 7 11 14 17 
+[DEBUG] 786240 => One of the combination is found!
+9
+1 2 3 4 5 6 7 12 13 
+[DEBUG] 896896 => One of the combination is found!
+8
+1 2 4 7 8 11 13 14 
+[DEBUG] 950400 => One of the combination is found!
+9
+1 2 3 4 5 6 8 11 15 
+[DEBUG] 1016064 => One of the combination is found!
+9
+1 2 3 4 6 7 8 9 14 
+[DEBUG] 1201200 => One of the combination is found!
+9
+1 2 3 4 5 7 10 11 13 
+[DEBUG] 1429428 => One of the combination is found!
+8
+1 2 3 7 11 13 14 17 
+[DEBUG] 1782144 => One of the combination is found!
+9
+1 2 3 4 6 7 8 13 17 
+[DEBUG] 1999200 => One of the combination is found!
+9
+1 2 3 4 5 7 10 14 17 
+[DEBUG] 2386800 => One of the combination is found!
+9
+1 2 3 4 5 6 13 15 17 
+[DEBUG] 2635776 => One of the combination is found!
+9
+1 2 3 4 6 8 11 13 16 
+[DEBUG] 3394560 => One of the combination is found!
+9
+1 2 3 4 5 8 13 16 17 
+[DEBUG] 3518592 => One of the combination is found!
+9
+1 2 3 4 7 8 11 14 17 
+[DEBUG] 4054050 => One of the combination is found!
+9
+1 2 3 5 7 9 11 13 15 
+[DEBUG] 4200768 => One of the combination is found!
+9
+1 2 3 4 6 11 12 13 17 
+[DEBUG] 4659200 => One of the combination is found!
+9
+1 2 4 5 7 8 10 13 16 
+[DEBUG] 5765760 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 11 13 
+[DEBUG] 6531840 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 9 18 
+[DEBUG] 6702080 => One of the combination is found!
+9
+1 2 4 5 7 8 11 16 17 
+[DEBUG] 8255520 => One of the combination is found!
+10
+1 2 3 4 5 6 7 9 13 14 
+[DEBUG] 9596160 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 14 17 
+[DEBUG] 11456640 => One of the combination is found!
+10
+1 2 3 4 5 6 8 9 13 17 
+[DEBUG] 12852000 => One of the combination is found!
+10
+1 2 3 4 5 6 7 10 15 17 
+[DEBUG] 14805504 => One of the combination is found!
+10
+1 2 3 4 6 7 8 9 12 17 
+[DEBUG] 17503200 => One of the combination is found!
+10
+1 2 3 4 5 6 10 11 13 17 
+[DEBUG] 18278400 => One of the combination is found!
+10
+1 2 3 4 5 7 8 10 16 17 
+[DEBUG] 19828800 => One of the combination is found!
+10
+1 2 3 4 5 6 9 10 17 18 
+[DEBUG] 21897216 => One of the combination is found!
+10
+1 2 3 4 6 8 9 11 12 16 
+[DEBUG] 25061400 => One of the combination is found!
+10
+1 2 3 4 5 7 9 13 15 17 
+[DEBUG] 28588560 => One of the combination is found!
+10
+1 2 3 4 5 7 11 13 14 17 
+[DEBUG] 34898688 => One of the combination is found!
+10
+1 2 3 4 6 8 9 11 17 18 
+[DEBUG] 47900160 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 11 12 
+[DEBUG] 54454400 => One of the combination is found!
+10
+1 2 4 5 7 8 10 11 13 17 
+[DEBUG] 59073300 => One of the combination is found!
+10
+1 2 3 5 6 9 11 13 15 17 
+[DEBUG] 61689600 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 10 17 
+[DEBUG] 75479040 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 13 16 
+[DEBUG] 84672000 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 10 14 15 
+[DEBUG] 91238400 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 10 11 16 
+[DEBUG] 101088000 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 10 13 15 
+[DEBUG] 110888960 => One of the combination is found!
+10
+1 2 4 5 7 8 13 14 16 17 
+[DEBUG] 120294720 => One of the combination is found!
+11
+1 2 3 4 5 6 7 9 12 13 17 
+[DEBUG] 143769600 => One of the combination is found!
+11
+1 2 3 4 5 6 8 10 12 13 16 
+[DEBUG] 145411200 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 11 15 17 
+[DEBUG] 183783600 => One of the combination is found!
+11
+1 2 3 4 5 6 7 11 13 15 17 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 20
+-------------------------------
+[DEBUG] 21 => One of the combination is found!
+3
+1 3 7 
+[DEBUG] 221 => One of the combination is found!
+3
+1 13 17 
+[DEBUG] 561 => One of the combination is found!
+4
+1 3 11 17 
+[DEBUG] 741 => One of the combination is found!
+4
+1 3 13 19 
+[DEBUG] 1001 => One of the combination is found!
+4
+1 7 11 13 
+[DEBUG] 2261 => One of the combination is found!
+4
+1 7 17 19 
+[DEBUG] 3861 => One of the combination is found!
+5
+1 3 9 11 13 
+[DEBUG] 4641 => One of the combination is found!
+5
+1 3 7 13 17 
+[DEBUG] 8721 => One of the combination is found!
+5
+1 3 9 17 19 
+[DEBUG] 39501 => One of the combination is found!
+6
+1 3 7 9 11 19 
+[DEBUG] 8729721 => One of the combination is found!
+8
+1 3 7 9 11 13 17 19 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 21
+-------------------------------
+[DEBUG] 22 => One of the combination is found!
+3
+1 2 11 
+[DEBUG] 64 => One of the combination is found!
+4
+1 2 4 8 
+[DEBUG] 85 => One of the combination is found!
+3
+1 5 17 
+[DEBUG] 190 => One of the combination is found!
+4
+1 2 5 19 
+[DEBUG] 400 => One of the combination is found!
+5
+1 2 4 5 10 
+[DEBUG] 442 => One of the combination is found!
+4
+1 2 13 17 
+[DEBUG] 715 => One of the combination is found!
+4
+1 5 11 13 
+[DEBUG] 1870 => One of the combination is found!
+5
+1 2 5 11 17 
+[DEBUG] 2584 => One of the combination is found!
+5
+1 2 4 17 19 
+[DEBUG] 5440 => One of the combination is found!
+6
+1 2 4 5 8 17 
+[DEBUG] 21736 => One of the combination is found!
+6
+1 2 4 11 13 19 
+[DEBUG] 45760 => One of the combination is found!
+7
+1 2 4 5 8 11 13 
+[DEBUG] 355300 => One of the combination is found!
+7
+1 2 5 10 11 17 19 
+[DEBUG] 563200 => One of the combination is found!
+8
+1 2 4 5 8 10 11 16 
+[DEBUG] 832000 => One of the combination is found!
+8
+1 2 4 5 8 10 13 20 
+[DEBUG] 1033600 => One of the combination is found!
+8
+1 2 4 5 8 10 17 19 
+[DEBUG] 1847560 => One of the combination is found!
+8
+1 2 4 5 11 13 17 19 
+[DEBUG] 3638272 => One of the combination is found!
+8
+1 2 4 8 11 16 17 19 
+[DEBUG] 8694400 => One of the combination is found!
+9
+1 2 4 5 8 10 11 13 19 
+[DEBUG] 11315200 => One of the combination is found!
+9
+1 2 4 5 8 10 13 16 17 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 22
+-------------------------------
+[DEBUG] 133 => One of the combination is found!
+3
+1 7 19 
+[DEBUG] 221 => One of the combination is found!
+3
+1 13 17 
+[DEBUG] 441 => One of the combination is found!
+4
+1 3 7 21 
+[DEBUG] 595 => One of the combination is found!
+4
+1 5 7 17 
+[DEBUG] 969 => One of the combination is found!
+4
+1 3 17 19 
+[DEBUG] 1365 => One of the combination is found!
+5
+1 3 5 7 13 
+[DEBUG] 2025 => One of the combination is found!
+5
+1 3 5 9 15 
+[DEBUG] 3213 => One of the combination is found!
+5
+1 3 7 9 17 
+[DEBUG] 19845 => One of the combination is found!
+6
+1 3 5 7 9 21 
+[DEBUG] 26775 => One of the combination is found!
+6
+1 3 5 7 15 17 
+[DEBUG] 29393 => One of the combination is found!
+5
+1 7 13 17 19 
+[DEBUG] 43605 => One of the combination is found!
+6
+1 3 5 9 17 19 
+[DEBUG] 97461 => One of the combination is found!
+6
+1 3 7 13 17 21 
+[DEBUG] 269325 => One of the combination is found!
+7
+1 3 5 7 9 15 19 
+[DEBUG] 447525 => One of the combination is found!
+7
+1 3 5 9 13 15 17 
+[DEBUG] 980343 => One of the combination is found!
+7
+1 3 7 9 13 19 21 
+[DEBUG] 4385745 => One of the combination is found!
+8
+1 3 5 7 9 13 17 21 
+[DEBUG] 59520825 => One of the combination is found!
+9
+1 3 5 7 9 13 15 17 19 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 23
+-------------------------------
+[DEBUG] 24 => One of the combination is found!
+4
+1 2 3 4 
+[DEBUG] 70 => One of the combination is found!
+4
+1 2 5 7 
+[DEBUG] 231 => One of the combination is found!
+4
+1 3 7 11 
+[DEBUG] 300 => One of the combination is found!
+5
+1 2 3 5 10 
+[DEBUG] 323 => One of the combination is found!
+3
+1 17 19 
+[DEBUG] 484 => One of the combination is found!
+4
+1 2 11 22 
+[DEBUG] 714 => One of the combination is found!
+5
+1 2 3 7 17 
+[DEBUG] 760 => One of the combination is found!
+5
+1 2 4 5 19 
+[DEBUG] 1105 => One of the combination is found!
+4
+1 5 13 17 
+[DEBUG] 1496 => One of the combination is found!
+5
+1 2 4 11 17 
+[DEBUG] 2002 => One of the combination is found!
+5
+1 2 7 11 13 
+[DEBUG] 2025 => One of the combination is found!
+5
+1 3 5 9 15 
+[DEBUG] 3060 => One of the combination is found!
+6
+1 2 3 5 6 17 
+[DEBUG] 3520 => One of the combination is found!
+6
+1 2 4 5 8 11 
+[DEBUG] 5130 => One of the combination is found!
+6
+1 2 3 5 9 19 
+[DEBUG] 7200 => One of the combination is found!
+7
+1 2 3 4 5 6 10 
+[DEBUG] 7315 => One of the combination is found!
+5
+1 5 7 11 19 
+[DEBUG] 7752 => One of the combination is found!
+6
+1 2 3 4 17 19 
+[DEBUG] 10098 => One of the combination is found!
+6
+1 2 3 9 11 17 
+[DEBUG] 10374 => One of the combination is found!
+6
+1 2 3 7 13 19 
+[DEBUG] 11340 => One of the combination is found!
+7
+1 2 3 5 6 7 9 
+[DEBUG] 13824 => One of the combination is found!
+7
+1 2 3 4 6 8 12 
+[DEBUG] 17136 => One of the combination is found!
+7
+1 2 3 4 6 7 17 
+[DEBUG] 18240 => One of the combination is found!
+7
+1 2 3 4 5 8 19 
+[DEBUG] 18700 => One of the combination is found!
+6
+1 2 5 10 11 17 
+[DEBUG] 21736 => One of the combination is found!
+6
+1 2 4 11 13 19 
+[DEBUG] 22610 => One of the combination is found!
+6
+1 2 5 7 17 19 
+[DEBUG] 26520 => One of the combination is found!
+7
+1 2 3 4 5 13 17 
+[DEBUG] 28728 => One of the combination is found!
+7
+1 2 3 4 7 9 19 
+[DEBUG] 35904 => One of the combination is found!
+7
+1 2 3 4 8 11 17 
+[DEBUG] 40320 => One of the combination is found!
+8
+1 2 3 4 5 6 7 8 
+[DEBUG] 40964 => One of the combination is found!
+6
+1 2 7 11 14 19 
+[DEBUG] 41769 => One of the combination is found!
+6
+1 3 7 9 13 17 
+[DEBUG] 44460 => One of the combination is found!
+7
+1 2 3 5 6 13 19 
+[DEBUG] 49980 => One of the combination is found!
+7
+1 2 3 5 7 14 17 
+[DEBUG] 53200 => One of the combination is found!
+7
+1 2 4 5 7 10 19 
+[DEBUG] 74613 => One of the combination is found!
+6
+1 3 7 11 17 19 
+[DEBUG] 81536 => One of the combination is found!
+7
+1 2 4 7 8 13 14 
+[DEBUG] 83790 => One of the combination is found!
+7
+1 2 3 5 7 19 21 
+[DEBUG] 87516 => One of the combination is found!
+7
+1 2 3 6 11 13 17 
+[DEBUG] 96900 => One of the combination is found!
+7
+1 2 3 5 10 17 19 
+[DEBUG] 98280 => One of the combination is found!
+8
+1 2 3 4 5 7 9 13 
+[DEBUG] 117600 => One of the combination is found!
+8
+1 2 3 4 5 7 10 14 
+[DEBUG] 123120 => One of the combination is found!
+8
+1 2 3 4 5 6 9 19 
+[DEBUG] 133056 => One of the combination is found!
+8
+1 2 3 4 6 7 11 12 
+[DEBUG] 140140 => One of the combination is found!
+7
+1 2 5 7 11 13 14 
+[DEBUG] 146718 => One of the combination is found!
+7
+1 2 3 9 11 13 19 
+[DEBUG] 156332 => One of the combination is found!
+6
+1 2 11 17 19 22 
+[DEBUG] 164934 => One of the combination is found!
+7
+1 2 3 7 11 17 21 
+[DEBUG] 175560 => One of the combination is found!
+8
+1 2 3 4 5 7 11 19 
+[DEBUG] 189728 => One of the combination is found!
+7
+1 2 4 7 11 14 22 
+[DEBUG] 214016 => One of the combination is found!
+7
+1 2 4 8 11 16 19 
+[DEBUG] 214200 => One of the combination is found!
+8
+1 2 3 4 5 7 15 17 
+[DEBUG] 242352 => One of the combination is found!
+8
+1 2 3 4 6 9 11 17 
+[DEBUG] 246400 => One of the combination is found!
+8
+1 2 4 5 7 8 10 11 
+[DEBUG] 248976 => One of the combination is found!
+8
+1 2 3 4 6 7 13 19 
+[DEBUG] 255255 => One of the combination is found!
+7
+1 3 5 7 11 13 17 
+[DEBUG] 261120 => One of the combination is found!
+8
+1 2 3 4 5 8 16 17 
+[DEBUG] 271700 => One of the combination is found!
+7
+1 2 5 10 11 13 19 
+[DEBUG] 278784 => One of the combination is found!
+8
+1 2 3 4 6 8 11 22 
+[DEBUG] 324324 => One of the combination is found!
+8
+1 2 3 6 7 9 11 13 
+[DEBUG] 337365 => One of the combination is found!
+7
+1 3 5 7 9 17 21 
+[DEBUG] 359100 => One of the combination is found!
+8
+1 2 3 5 6 7 15 19 
+[DEBUG] 521664 => One of the combination is found!
+8
+1 2 3 4 8 11 13 19 
+[DEBUG] 534820 => One of the combination is found!
+7
+1 2 5 11 13 17 22 
+[DEBUG] 570240 => One of the combination is found!
+9
+1 2 3 4 5 6 8 9 11 
+[DEBUG] 646646 => One of the combination is found!
+7
+1 2 7 11 13 17 19 
+[DEBUG] 654075 => One of the combination is found!
+7
+1 3 5 9 15 17 19 
+[DEBUG] 726180 => One of the combination is found!
+8
+1 2 3 5 7 13 14 19 
+[DEBUG] 732160 => One of the combination is found!
+8
+1 2 4 5 8 11 13 16 
+[DEBUG] 1093950 => One of the combination is found!
+8
+1 2 3 5 11 13 15 17 
+[DEBUG] 1136960 => One of the combination is found!
+8
+1 2 4 5 8 11 17 19 
+[DEBUG] 1153152 => One of the combination is found!
+9
+1 2 3 4 6 7 8 11 13 
+[DEBUG] 1166400 => One of the combination is found!
+9
+1 2 3 4 5 6 9 10 18 
+[DEBUG] 1199520 => One of the combination is found!
+9
+1 2 3 4 5 6 7 14 17 
+[DEBUG] 1258400 => One of the combination is found!
+8
+1 2 4 5 10 11 13 22 
+[DEBUG] 1276800 => One of the combination is found!
+9
+1 2 3 4 5 7 8 10 19 
+[DEBUG] 1429428 => One of the combination is found!
+8
+1 2 3 7 11 13 14 17 
+[DEBUG] 1524096 => One of the combination is found!
+9
+1 2 3 4 6 7 8 9 21 
+[DEBUG] 1856400 => One of the combination is found!
+9
+1 2 3 4 5 7 10 13 17 
+[DEBUG] 2010960 => One of the combination is found!
+9
+1 2 3 4 5 6 7 19 21 
+[DEBUG] 2059904 => One of the combination is found!
+8
+1 2 4 7 8 11 19 22 
+[DEBUG] 2239488 => One of the combination is found!
+9
+1 2 3 4 6 8 9 12 18 
+[DEBUG] 2325600 => One of the combination is found!
+9
+1 2 3 4 5 6 10 17 19 
+[DEBUG] 2396394 => One of the combination is found!
+8
+1 2 3 7 11 13 19 21 
+[DEBUG] 2451456 => One of the combination is found!
+9
+1 2 3 4 6 7 8 16 19 
+[DEBUG] 2619540 => One of the combination is found!
+9
+1 2 3 5 6 7 9 11 21 
+[DEBUG] 2776032 => One of the combination is found!
+9
+1 2 3 4 6 7 9 17 18 
+[DEBUG] 2875392 => One of the combination is found!
+9
+1 2 3 4 6 8 12 13 16 
+[DEBUG] 2994992 => One of the combination is found!
+8
+1 2 4 7 11 13 17 22 
+[DEBUG] 3029400 => One of the combination is found!
+9
+1 2 3 4 5 9 11 15 17 
+[DEBUG] 3112200 => One of the combination is found!
+9
+1 2 3 4 5 7 13 15 19 
+[DEBUG] 3264000 => One of the combination is found!
+9
+1 2 3 4 5 8 10 17 20 
+[DEBUG] 3521232 => One of the combination is found!
+9
+1 2 3 4 6 9 11 13 19 
+[DEBUG] 3662820 => One of the combination is found!
+9
+1 2 3 5 6 7 9 17 19 
+[DEBUG] 3793920 => One of the combination is found!
+9
+1 2 3 4 5 8 13 16 19 
+[DEBUG] 3958416 => One of the combination is found!
+9
+1 2 3 4 6 7 11 17 21 
+[DEBUG] 4054050 => One of the combination is found!
+9
+1 2 3 5 7 9 11 13 15 
+[DEBUG] 4465152 => One of the combination is found!
+9
+1 2 3 4 6 8 12 17 19 
+[DEBUG] 4553472 => One of the combination is found!
+9
+1 2 3 4 7 8 11 14 22 
+[DEBUG] 4901715 => One of the combination is found!
+8
+1 3 5 7 9 13 19 21 
+[DEBUG] 5078700 => One of the combination is found!
+9
+1 2 3 5 6 9 11 15 19 
+[DEBUG] 6531840 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 9 18 
+[DEBUG] 6636168 => One of the combination is found!
+9
+1 2 3 4 7 9 11 19 21 
+[DEBUG] 7047040 => One of the combination is found!
+9
+1 2 4 5 7 8 11 13 22 
+[DEBUG] 7330400 => One of the combination is found!
+9
+1 2 4 5 7 10 11 14 17 
+[DEBUG] 7468032 => One of the combination is found!
+9
+1 2 3 4 8 11 13 16 17 
+[DEBUG] 8386560 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 13 16 
+[DEBUG] 8618400 => One of the combination is found!
+10
+1 2 3 4 5 6 7 9 10 19 
+[DEBUG] 9152000 => One of the combination is found!
+9
+1 2 4 5 8 10 11 13 20 
+[DEBUG] 9313920 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 11 21 
+[DEBUG] 9648639 => One of the combination is found!
+8
+1 3 7 9 11 13 17 21 
+[DEBUG] 10108800 => One of the combination is found!
+10
+1 2 3 4 5 6 8 9 13 15 
+[DEBUG] 10771200 => One of the combination is found!
+10
+1 2 3 4 5 6 8 10 11 17 
+[DEBUG] 12390400 => One of the combination is found!
+9
+1 2 4 5 8 10 11 16 22 
+[DEBUG] 13023360 => One of the combination is found!
+10
+1 2 3 4 5 6 7 8 17 19 
+[DEBUG] 13208832 => One of the combination is found!
+10
+1 2 3 4 6 7 8 9 13 14 
+[DEBUG] 15275520 => One of the combination is found!
+10
+1 2 3 4 5 6 8 12 13 17 
+[DEBUG] 16547328 => One of the combination is found!
+10
+1 2 3 4 6 7 8 9 12 19 
+[DEBUG] 17428320 => One of the combination is found!
+10
+1 2 3 4 5 6 7 13 14 19 
+[DEBUG] 18057600 => One of the combination is found!
+10
+1 2 3 4 5 6 8 11 15 19 
+[DEBUG] 18278400 => One of the combination is found!
+10
+1 2 3 4 5 7 8 10 16 17 
+[DEBUG] 19456000 => One of the combination is found!
+9
+1 2 4 5 8 10 16 19 20 
+[DEBUG] 22702680 => One of the combination is found!
+10
+1 2 3 4 5 7 9 11 13 21 
+[DEBUG] 23595264 => One of the combination is found!
+10
+1 2 3 4 6 7 8 11 14 19 
+[DEBUG] 24058944 => One of the combination is found!
+10
+1 2 3 4 6 7 9 12 13 17 
+[DEBUG] 26254800 => One of the combination is found!
+10
+1 2 3 4 5 6 11 13 15 17 
+[DEBUG] 26336128 => One of the combination is found!
+9
+1 2 4 7 8 13 14 17 19 
+[DEBUG] 29489152 => One of the combination is found!
+9
+1 2 4 7 8 11 16 17 22 
+[DEBUG] 30201600 => One of the combination is found!
+10
+1 2 3 4 5 8 10 11 13 22 
+[DEBUG] 30735936 => One of the combination is found!
+10
+1 2 3 4 6 7 9 11 14 22 
+[DEBUG] 31744440 => One of the combination is found!
+10
+1 2 3 4 5 7 9 13 17 19 
+[DEBUG] 34306272 => One of the combination is found!
+10
+1 2 3 4 6 7 11 13 14 17 
+[DEBUG] 34670592 => One of the combination is found!
+10
+1 2 3 4 6 8 9 11 16 19 
+[DEBUG] 37984800 => One of the combination is found!
+10
+1 2 3 4 5 7 10 14 17 19 
+[DEBUG] 39916800 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 10 11 
+[DEBUG] 40334112 => One of the combination is found!
+10
+1 2 3 4 6 7 9 13 18 19 
+[DEBUG] 42977088 => One of the combination is found!
+10
+1 2 3 4 6 7 11 12 17 19 
+[DEBUG] 44015400 => One of the combination is found!
+10
+1 2 3 4 5 9 11 13 15 19 
+[DEBUG] 45265220 => One of the combination is found!
+9
+1 2 5 7 11 13 14 17 19 
+[DEBUG] 45341856 => One of the combination is found!
+10
+1 2 3 4 6 7 9 14 17 21 
+[DEBUG] 46437300 => One of the combination is found!
+10
+1 2 3 5 6 7 9 13 15 21 
+[DEBUG] 47424000 => One of the combination is found!
+10
+1 2 3 4 5 8 10 13 19 20 
+[DEBUG] 51251200 => One of the combination is found!
+10
+1 2 4 5 7 8 10 11 13 16 
+[DEBUG] 56609280 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 12 13 
+[DEBUG] 57513456 => One of the combination is found!
+10
+1 2 3 4 6 7 11 13 19 21 
+[DEBUG] 57987072 => One of the combination is found!
+10
+1 2 3 4 6 8 11 13 16 22 
+[DEBUG] 61282144 => One of the combination is found!
+9
+1 2 4 7 11 14 17 19 22 
+[DEBUG] 67737600 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 10 12 14 
+[DEBUG] 71879808 => One of the combination is found!
+10
+1 2 3 4 7 8 11 13 17 22 
+[DEBUG] 79587200 => One of the combination is found!
+10
+1 2 4 5 7 8 10 11 17 19 
+[DEBUG] 80720640 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 11 13 14 
+[DEBUG] 90047232 => One of the combination is found!
+10
+1 2 3 4 6 8 11 17 19 22 
+[DEBUG] 97297200 => One of the combination is found!
+11
+1 2 3 4 5 6 7 9 11 13 15 
+[DEBUG] 99532800 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 10 12 16 
+[DEBUG] 101122560 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 11 12 19 
+[DEBUG] 104756652 => One of the combination is found!
+10
+1 2 3 6 7 9 11 13 17 19 
+[DEBUG] 104832000 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 10 13 20 
+[DEBUG] 106506400 => One of the combination is found!
+10
+1 2 4 5 7 10 11 13 14 19 
+[DEBUG] 106686720 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 9 14 21 
+[DEBUG] 116424000 => One of the combination is found!
+11
+1 2 3 4 5 6 7 10 11 14 15 
+[DEBUG] 118609920 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 11 13 16 
+[DEBUG] 144193280 => One of the combination is found!
+10
+1 2 4 5 7 8 11 14 19 22 
+[DEBUG] 147026880 => One of the combination is found!
+11
+1 2 3 4 5 6 7 11 12 13 17 
+[DEBUG] 156499200 => One of the combination is found!
+11
+1 2 3 4 5 6 8 10 11 13 19 
+[DEBUG] 171601920 => One of the combination is found!
+11
+1 2 3 4 5 6 7 8 14 16 19 
+[DEBUG] 175929600 => One of the combination is found!
+11
+1 2 3 4 5 7 8 10 11 14 17 
+[DEBUG] 184187520 => One of the combination is found!
+11
+1 2 3 4 5 6 8 9 11 17 19 
+[DEBUG] 186810624 => One of the combination is found!
+11
+1 2 3 4 6 7 8 9 11 13 18 
+[DEBUG] 190944000 => One of the combination is found!
+11
+1 2 3 4 5 6 8 10 13 15 17 
+[DEBUG] 194322240 => One of the combination is found!
+11
+1 2 3 4 5 6 7 9 12 17 21 
+[DEBUG] 203860800 => One of the combination is found!
+11
+1 2 3 4 5 6 9 10 11 13 22 
+[DEBUG] 209649440 => One of the combination is found!
+10
+1 2 4 5 7 11 13 14 17 22 
+[DEBUG] --------------------------
+[DEBUG] TEST START!!!
+[DEBUG] --------------------------
+[DEBUG] N: 24
+-------------------------------
+[DEBUG] 385 => One of the combination is found!
+4
+1 5 7 11 
+[DEBUG] 1105 => One of the combination is found!
+4
+1 5 13 17 
+[DEBUG] 1729 => One of the combination is found!
+4
+1 7 13 19 
+[DEBUG] 2185 => One of the combination is found!
+4
+1 5 19 23 
+[DEBUG] 2737 => One of the combination is found!
+4
+1 7 17 23 
+[DEBUG] 3289 => One of the combination is found!
+4
+1 11 13 23 
+[DEBUG] 3553 => One of the combination is found!
+4
+1 11 17 19 
+[DEBUG] 10465 => One of the combination is found!
+5
+1 5 7 13 23 
+[DEBUG] 11305 => One of the combination is found!
+5
+1 5 7 17 19 
+[DEBUG] 13585 => One of the combination is found!
+5
+1 5 11 13 19 
+[DEBUG] 17017 => One of the combination is found!
+5
+1 7 11 13 17 
+[DEBUG] 21505 => One of the combination is found!
+5
+1 5 11 17 23 
+[DEBUG] 33649 => One of the combination is found!
+5
+1 7 11 19 23 
+[DEBUG] 96577 => One of the combination is found!
+5
+1 13 17 19 23 
+[DEBUG] 37182145 => One of the combination is found!
+8
+1 5 7 11 13 17 19 23 
