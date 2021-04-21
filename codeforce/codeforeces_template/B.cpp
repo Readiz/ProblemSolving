@@ -12,7 +12,6 @@
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
-#define MOD 1'000'000'007
 typedef unsigned long long ull;
 typedef long long ll;
 
@@ -23,13 +22,6 @@ MAIN_START
     int tc;
     scanf("%d", &tc);
     for (int TC = 0; TC < tc; TC++) {
-        ull n, k;
-        scanf("%llu %llu", &n, &k);
-        ull r = 1;
-        while (k-- > 0) {
-            r *= n;
-            r %= MOD;
-        }
-        printf("%llu\n", r);
+
     }
 MAIN_END
