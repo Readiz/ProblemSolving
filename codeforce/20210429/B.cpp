@@ -3,18 +3,15 @@
     #define READIZ_DEBUG
 #endif
 #ifdef READIZ_DEBUG
-    bool isDebug = true;
     #define printd(...) { printf("[DEBUG] "); printf(__VA_ARGS__); printf("\n"); }
-    inline void testInit() { freopen("E_input.txt", "rt", stdin); }
+    inline void testInit() { freopen("B_input.txt", "rt", stdin); }
     #define MAIN_START int main(){testInit();while(!feof(stdin)){
     #define MAIN_END } return 0;}
 #else
-    bool isDebug = false;
     #define printd(...)
     #define MAIN_START int main(){
     #define MAIN_END return 0;}
 #endif
-#define R register
 typedef unsigned long long ull;
 typedef long long ll;
 
@@ -25,6 +22,18 @@ MAIN_START
     int tc;
     scanf("%d", &tc);
     for (int TC = 0; TC < tc; TC++) {
-
+        int n, m, k;
+        scanf("%d %d %d", &n, &m, &k);
+        int sn = 1, sm = 1;
+        int cost = 0;
+        cost += (n - sn);
+        // n에 도달함
+        cost += n * (m - sm);
+        printd("cost: %d", cost);
+        if (cost == k) {
+            printf("YES\n");
+        } else {
+            printf("NO\n");
+        }
     }
 MAIN_END

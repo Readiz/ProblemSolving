@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <vector>
+#include <algorithm>
+using namespace std;
 #ifndef ONLINE_JUDGE
     #define READIZ_DEBUG
 #endif
@@ -22,9 +25,31 @@ MAIN_START
     printd("--------------------------");
     printd("TEST START!!!");
     printd("--------------------------");
+    vector<ull> checker;
+    for (ull k = 1ULL; k < 10'000'000'000ULL; k *= 10ULL) {
+        ull initNum = k;
+        ull l = k / 10ULL;
+        while (l > 0) {
+            initNum += l;
+            l /= 10ULL;
+        }
+        for (int i = 1; i <= 9; i++) {
+            checker.push_back(initNum * i);
+        }
+    }
+    // for (auto const & n : checker) {
+    //     printf("%llu ", n);
+    // }
+    // printf("\n");
+
     int tc;
     scanf("%d", &tc);
     for (int TC = 0; TC < tc; TC++) {
-
+        ull N;
+        scanf("%llu", &N);
+        auto idx = upper_bound(checker.begin(), checker.end(), N);
+        printd("N: %d", N);
+        printd("idx diff = %d", idx - checker.begin());
+        printf("%d\n", idx - checker.begin());
     }
 MAIN_END

@@ -147,3 +147,28 @@ Architect는 고려하지 않은 무조건적인 최적화 팁 (시험을 통한
   - inline으로 그냥 작성하는게 젤빠르다. (진짜로 반복 하는거고 inline 키워드 말하는 것 아님. inline 키워드는 컴파일러 옵션에 따라 달라짐.)
   - 아니라면, #define을 활용하는게 나을 듯. #define max(a, b) { a>b... } 와 같이...
 5. new, alloc 사용 지양. 전역 공간에 메모리 배열로 잡아두고 할당하면 속도에서 이득.
+
+
+---------------------------------------------------------
+Codeforces 라운드 정의
+- These have some score distribution. Hacking can be done in the contest itself. Once you lock your solution to a problem, you can hack other participants' solutions.
+ . Codeforces Global Rounds
+  a. Rated for all
+ . Codeforces Div2
+  a. Rated for <= 2099
+ . Codeforces Div1+Div2
+  a. Rated for all
+  b. This is actually 2 contests(Div1 and Div2) held at the same time with some shared problems. Participants <= 1899 participate in Div2 and participants >= 1900 participate in Div1.
+
+- These rounds have equal weightage for each problem and have a 12 hr hacking phase after the contest ends
+ . Educational
+  a. rated for <= 2099
+ . Div3
+  a. rated for <= 1599
+
+
+------------------------------------------------------------
+비트 연산 관련
+- 비트 연산의 우선순위는 낮기 때문에 아래와 같이 홀수를 판별하는 로직에서 매우 조심하여야 함.
+ . if ((N & 1ULL) == 0ULL) <- 괄호 필요.
+ 
