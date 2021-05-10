@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
 #ifndef ONLINE_JUDGE
     #define READIZ_DEBUG
 #endif
