@@ -1,0 +1,76 @@
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+#include <stdio.h>
+#include <time.h>
+
+#define BAR_LEN 5
+
+#define CMD_INIT 100
+#define CMD_MAKEWALL 200
+#define CMD_MATCHPIECE 300
+
+extern void init();
+extern void makeWall(int mHeights[BAR_LEN]);
+extern int matchPiece(int mHeights[BAR_LEN]);
+
+static bool run()
+{
+	int N;
+	int cmd;
+	int heights[BAR_LEN];
+
+	int ret = 0;
+	int ans = 0;
+	scanf("%d", &N);
+
+	scanf("%d", &cmd);
+	bool okay = false;
+	if (cmd == CMD_INIT)
+	{
+		init();
+		okay = true;
+	}
+
+	for (int turn = 0; turn < N-1; turn++)
+	{
+		scanf("%d", &cmd);
+		for (int i = 0; i < BAR_LEN; i++)
+		{
+			scanf("%d", &heights[i]);
+		}
+
+		switch (cmd)
+		{
+		case CMD_MAKEWALL:
+			makeWall(heights);
+			break;
+		case CMD_MATCHPIECE:
+			ret = matchPiece(heights);
+			scanf("%d", &ans);
+			if (ans != ret)
+				okay = false;
+			break;
+		}
+	}
+	return okay;
+}
+
+int main()
+{
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	setbuf(stdout, NULL);
+
+    clock_t start = clock();
+	int T, MARK;
+	scanf("%d %d", &T, &MARK);
+	for (int tc = 1; tc <= T; tc++)
+	{
+		int score = run() ? MARK : 0;
+		printf("#%d %d\n", tc, score);
+	}
+    printf("Time spent: %d ms\n", (clock() - start) * 1000 / CLOCKS_PER_SEC);
+	return 0;
+}

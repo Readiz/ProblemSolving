@@ -179,3 +179,72 @@ Codeforces 라운드 정의
 
 - #include <bits/stdc++.h>
  . gcc에서만 사용 가능. 비표준.
+
+
+------------------------------------------------------------
+샘플 코드 for pair using
+------------------------------------------------------------
+https://blog.naver.com/p_bysu
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int n, k;
+typedef long long ll;
+typedef pair<ll, ll> pll;
+deque<pll> dq;
+ll dp[100001], tmp, ans, arr[100001];
+int main() {
+	dq.push_back({0,0});
+	scanf("%d %d\n", &n, &k);
+	for (int i = 0; i < n; i++) 
+		scanf("%lld", arr + i);
+	for(int i =0; i< n; i++){
+		while(dq.size() && dq.front().second < i-k) dq.pop_front();
+		dp[i] = arr[i];
+		tmp = dq.front().first;
+		dp[i] = max(dp[i], tmp+ arr[i]);
+		while(dq.size() && dq.back().first <= dp[i]) dq.pop_back();
+		dq.push_back({dp[i],i});
+	}
+	ans = -1e18;
+	for(int i = 0; i<n; i++)
+		ans = max(ans, dp[i]);
+	printf("%lld\n", ans);
+	return 0;
+}
+// [출처] BOJ) 15678 연세 워트 파크|작성자 bysu
+```
+
+
+
+---------------------------------------
+한글 인코딩 관련
+----------------------------------------
+https://www.vbflash.net/192
+아주 쉬운 문자 인코딩 강좌 1/7 
+https://www.clien.net/service/board/lecture/9924551
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 2/7 
+https://www.clien.net/service/board/lecture/9924679
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 3/7 
+https://www.clien.net/service/board/lecture/9924722
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 4/7 
+https://www.clien.net/service/board/lecture/9924759
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 5/7 
+https://www.clien.net/service/board/lecture/9924778
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 6/7 
+https://www.clien.net/service/board/lecture/9924803
+CLIEN
+
+아주 쉬운 문자 인코딩 강좌 7/7 
+https://www.clien.net/service/board/lecture/9924839
+CLIEN
