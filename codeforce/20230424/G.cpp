@@ -32,34 +32,65 @@ void solve() {
     sort(A, A+N);
     ll prev = -1;
     int P = 0;
-    unordered_map<ll,int> cnt;
+    map<ll,ll> cnt;
     for(int i = 0; i < N; ++i) {
         if (prev != A[i]) {
-            B[P++] = A[i];
             cnt[A[i]] = 1;
+            B[P++] = A[i];
         } else {
             cnt[A[i]]++;
         }
         prev = A[i];
     }
+
     ll ans = 0;
-    for(register int i = 0; i < P; ++i) {
-        for(register int j = i + 1; j < P; ++j) {
-            if (B[j] % B[i] == 0) { // 나누어 떨어지는 것을 발견
-                int b = B[j] / B[i];
-                // _D("Checking... %d, %d -> %d\n", B[j], B[i], B[j]*b);
-                if (cnt.find(B[j] * b) != cnt.end()) { // 있음
-                    ans += cnt[B[i]] * cnt[B[j]] * cnt[B[j] * b];
-                    //_D("Found! %d %d %d\n", B[i], B[j], b * B[j]);
+    // M = 10^9
+    // -> 3번 곱하는 것을 보므로 1000까지 돌면 됨
+    // 중앙의 값인 A_j를 살펴보자....
+    for(int j = 0; j < P; ++j) {
+        ll s = B[j];
+        ll cs = cnt[s];
+        if (s <= 1'000'000) {
+            for(ll b = 2; b * b <= s; ++b) {
+                if (s % b != 0) continue;
+                ll i = s / b;
+                ll k = s * b;
+                _D("Checking %d, %d, %d...\n", i, s, k);
+                if (cnt.find(i) != cnt.end() && cnt.find(k) != cnt.end()) {
+                    ans += cnt[i] * cnt[k] * cs;
+                }
+                if (b * b != s) {
+                    ll b = i;
+                    i = s / b;
+                    k = s * b;
+                    _D("Checking %d, %d, %d...\n", i, s, k);
+                    if (cnt.find(i) != cnt.end() && cnt.find(k) != cnt.end()) {
+                        ans += cnt[i] * cnt[k] * cs;
+                    }
+                }
+            }
+            if (s != 1) {
+                ll i = 1;
+                ll k = s * s;
+                _D("Checking %d, %d, %d...\n", i, s, k);
+                if (cnt.find(i) != cnt.end() && cnt.find(k) != cnt.end()) {
+                    ans += cnt[i] * cnt[k] * cs;
+                }
+            }
+        } else {
+            for(ll b = 2; b <= 1000; ++b) {
+                if (s * b > 1'000'000'000) break;
+                if (s % b != 0) continue;
+                ll i = s / b;
+                ll k = s * b;
+                if (cnt.find(i) != cnt.end() && cnt.find(k) != cnt.end()) {
+                    ans += cnt[i] * cnt[k] * cs;
                 }
             }
         }
-        // 3개인지 체크 (예외 케이스)
-        ll CNT = cnt[B[i]];
-        if (CNT >= 3) {
-            // k_P_3
-            //_D("Dup Found! %d\n", B[i]);
-            ans += CNT * (CNT - 1) * (CNT - 2);
+        if (cs >= 3) {
+            // 하나는 뽑혔고, 나머지 두개를 뽑는 case
+            ans += cs * (cs - 1) * (cs - 2);
         }
     }
     printf("%lld\n", ans);
