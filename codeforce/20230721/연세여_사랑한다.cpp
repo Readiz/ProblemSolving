@@ -12,18 +12,9 @@ typedef long long ll;
     #define _D(...)
 #endif
 
-int N;
-void solve() {
-    scanf("%d", &N);
-    FOR(i,0,N) {
-        
-    }
-}
-
 int main() {
-    int tc;
-    scanf("%d", &tc);
-    FOR(TC,0,tc) {
-        solve();
-    }
+    char buf[2]; scanf("%s", buf);
+    int v = abs(buf[0] - 'I');
+    printf("%d\n", v + 84);
+    return 0;
 }

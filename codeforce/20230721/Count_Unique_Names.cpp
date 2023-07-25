@@ -13,17 +13,24 @@ typedef long long ll;
 #endif
 
 int N;
+char buf[10000];
+
 void solve() {
     scanf("%d", &N);
+    unordered_set<string> M;
     FOR(i,0,N) {
-        
+        scanf("%s", buf);
+        string name = buf;
+        M.insert(name);
     }
+    printf("%d\n", M.size());
 }
 
 int main() {
     int tc;
     scanf("%d", &tc);
     FOR(TC,0,tc) {
+        printf("#%d ", TC+1);
         solve();
     }
 }
