@@ -1,0 +1,9 @@
+https://codeforces.com/contest/1857/problem/A
+https://codeforces.com/contest/1857/problem/B
+https://codeforces.com/contest/1857/problem/C
+https://codeforces.com/contest/1857/problem/D
+https://codeforces.com/contest/1857/problem/E
+https://codeforces.com/contest/1857/problem/F
+https://codeforces.com/contest/1857/problem/G
+https://codeforces.com/contest/1857/problem/H
+https://codeforces.com/contest/1857/problems
