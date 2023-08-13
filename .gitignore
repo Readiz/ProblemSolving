@@ -3,3 +3,9 @@
 private/
 TIL/
 *.vsix
+class/extra/
+class/ex_origin/
+class/practice/
+class/ex_summary/
+class/ex_optimal/
+class/ex_practice/
