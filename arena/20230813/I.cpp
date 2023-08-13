@@ -40,17 +40,22 @@ void solve() {
                     stk[sp++] = ')';
                 }
             } else if (buf[p] == '*') {
-                int close = 0;
-                for(int i = 0; i < sp; ++i) {
-                    if (stk[i] == '(') --close;
-                    if (stk[i] == '?') {
-                        --close;
-                    }
-                    if (stk[i] == ')') {
-                        ++close;
-                        if (close > 0) {
-                            printf("NO\n");
-                            return;
+                if (sp > 0 && stk[0] == '*') {
+                    sp = 1;
+                    continue;
+                } else {
+                    int close = 0;
+                    for(int i = 0; i < sp; ++i) {
+                        if (stk[i] == '(') --close;
+                        if (stk[i] == '?') {
+                            --close;
+                        }
+                        if (stk[i] == ')') {
+                            ++close;
+                            if (close > 0) {
+                                printf("NO\n");
+                                return;
+                            }
                         }
                     }
                 }
@@ -80,10 +85,6 @@ void solve() {
 
     // case 1) * 로 시작하는 case
     if (stk[0] == '*') {
-        // case 2 ) *로 시작하지 않는 case
-        // ???((??????))
-        // ?))((??????))
-        // ?)(((????(((())
         int open = 0;
         for(int i = 1; i < sp; ++i) {
             if (stk[i] == '(') open++;

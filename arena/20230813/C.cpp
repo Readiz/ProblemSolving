@@ -1,3 +1,4 @@
+// 비트연산과 전혀 상관없었음.. 관찰부족.
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,12 +28,19 @@ int main() {
     for(auto& item: v) {
         while ((item<<1) < cmax) item <<= 1;
     }
+    sort(v.begin(), v.end());
+
+    ll gdiff = cmax - *v.begin();
+    ll last = *v.begin();
     for(auto& item: v) {
         _D("%lld ", item);
+        ll curdiff = abs(last * 2 - item);
+        if (curdiff < gdiff) gdiff = curdiff;
+        last = item;
     }
     _D("\n");
 
-    sort(v.begin(), v.end());
+    printf("%lld\n", gdiff);
     
 
     return 0;
