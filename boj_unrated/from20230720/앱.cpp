@@ -4,37 +4,34 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 
-constexpr int INF = 60000;
-unsigned short DP[2][20'000'001];
-int mmin(int a, int b) {
-    return a < b? a: b;
-}
+// DP[i]: i 코스트를 사용했을 때 가장 max로 확보할 수 있는 메모리 공간
+
 int main() {
-    int N, TM; scanf("%d %d", &N, &TM); // target memory
-    vector<int> M(N+1);
-    vector<int> C(N+1);
-    int MS = 0;
+    int N, M; scanf("%d %d", &N, &M);
+    vector<ll> A(N+1), C(N+1);
+    for(int i = 1; i <= N; ++i) scanf("%lld", &A[i]);
+    for(int i = 1; i <= N; ++i) scanf("%lld", &C[i]);
+
+    ll DP[101][10001] = {0,}; // i번째 친구가 cost j에서 최대한 확보할 수 있는 메모리 공간
     for(int i = 1; i <= N; ++i) {
-        scanf("%d", &M[i]);
-        MS += M[i];
-    }
-    for(int i = 1; i <= N; ++i) scanf("%d", &C[i]);
-
-    fill(DP[0], DP[1] + 20'000'001, INF); // 초기 비용 무한함
-    DP[0][0] = 0;
-
-    // M -> 메모리. 일종의 냅색의 W 역할
-    // M 이상의 메모리를 확보해야하며, 그 동안 cost는 최소가 되어야 한다.
-    for(int i = 1; i <= N; ++i) { // 냅색 루프 1. i 번째까지 쭉 본다.
-        for(int m = MS; m >= M[i]; --m) {
-            DP[i&1][m] = mmin(DP[1-(i&1)][m], DP[1-(i&1)][m - M[i]] + C[i]);
+        for(int j = 0; j <= 10000; ++j) {
+            if (j - C[i] >= 0) {
+                // i번째 앱을 죽이지 않았을 때 vs i번째 앱을 죽였을 때
+                // 더 많은 메모리를 확보할 수 있는 것을 저장한다.
+                DP[i][j] = max(DP[i-1][j], DP[i-1][j-C[i]] + A[i]);
+            } else {
+                DP[i][j] = DP[i-1][j];
+            }
         }
     }
-    int ans = INF;
-    for(int i = TM; i <= MS; ++i) {
-        ans = mmin(ans, DP[N&1][i]);
+
+    for(int i = 0; i <= 10000; ++i) {
+        if (DP[N][i] >= M) {
+            printf("%d\n", i);
+            return 0;
+        }
     }
-    printf("%d\n", ans);
+    printf("-1\n");
 
     return 0;
 }
