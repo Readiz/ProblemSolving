@@ -18,19 +18,18 @@ void solve() {
     // DP[i][j] = min{i<k<j}(DP[i][k]+DP[k][j]+S[i][j])
     int DP[101][101];
     fill((int*)DP, (int*)DP + 101*101, INF);
-    for(int i = 0; i <= N; ++i) DP[i][i] = v[i];
-    for(int i = 0; i < N; ++i) DP[i][i+1] = v[i] + v[i+1];
+    for(int i = 0; i <= N; ++i) DP[i][i] = 0;
 
     // [s, e]
-    for(int d = 2; d <= N-1; ++d) { // 거리가 작은 것부터 업데이트 해 나가야 한다.
+    for(int d = 1; d <= N-1; ++d) { // 거리가 작은 것부터 업데이트 해 나가야 한다.
         for(int s = 1; s <= N; ++s) {
             int e = s + d;
             if (e > N) break;
-            printf("[d] checking %d ~ %d\n", s, e);
+            // printf("[d] checking %d ~ %d\n", s, e);
             for(int k = s; k < e; ++k) {
                 DP[s][e] = min(DP[s][e], DP[s][k] + DP[k+1][e] + S[e] - S[s - 1]);
             }
-            printf("[d] = %d\n", DP[s][e]);
+            // printf("[d] = %d\n", DP[s][e]);
         }
     }
 
