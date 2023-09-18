@@ -57,17 +57,36 @@ int main() {
     }
     p[K] = {N, M};
 
-    // Bitmasking DP를 해보자.
-    ll DP[1<<21] = {0, };
-    for(;;) {
-        // Checking Condition to go
+    int cases = 1 << K; // 총 K개의 폭탄으로 생각 (MAX)
 
-        // check N
+    ll ans = 0;
+    for(int c = 0; c < cases; ++c) {
+        int lx = 0, ly = 0;
+        bool hasValidPath = true;
+        vector<Point> path;
+        for(int b = 1, i = 0; i < K; b <<= 1, ++i) {
+            if (b & c) {
+                if (lx <= p[i].x && ly <= p[i].y) {
+                    lx = p[i].x, ly = p[i].y;
+                    path.push_back(Point{lx, ly});
+                } else {
+                    hasValidPath = false;
+                    break;
+                }
+            }
+        }
+        if(!hasValidPath) continue;
+        int bCnt = path.size();
+        path.push_back(Point{N, M});
+        ll lans = 1;
 
-        // check bomb cnt
+        
 
-        // add? sub?
+        if (bCnt & 1) {
 
+        } else {
+
+        }
     }
 
     return 0;
