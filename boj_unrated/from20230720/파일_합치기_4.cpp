@@ -11,6 +11,11 @@ template<typename T>
 struct HuTucker{
     using value_t = T;
     using heap_t = priority_queue<value_t, vector<value_t>, greater<value_t>>;
+    int N;
+    vector<value_t> W, C;
+    vector<int> L, R;
+    vector<heap_t> heaps;
+    priority_queue<pair<value_t, int>> main;
     static value_t second_top(heap_t& h){
         auto a = h.top(); h.pop();
         auto b = h.top();
@@ -83,11 +88,6 @@ struct HuTucker{
         }
         return ans;
     }
-    int N;
-    vector<value_t> W, C;
-    vector<int> L, R;
-    vector<heap_t> heaps;
-    priority_queue<pair<value_t, int>> main;
 };
  
 void solve(){
