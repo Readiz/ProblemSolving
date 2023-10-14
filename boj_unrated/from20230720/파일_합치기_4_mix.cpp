@@ -11,54 +11,8 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 template <typename T>
-struct Vector {
-    T* data;
-    int capa, sz;
-    Vector() {
-        capa = 10; sz = 0;
-        data = new T[capa];
-    }
-    ~Vector() {
-        delete[] data;
-    }
-
-    void insert(T v) {
-        if (capa == sz) {
-            capa *= 2;
-            T* newData = new T[capa];
-            for(int i = 0; i < sz; ++i) {
-                newData[i] = data[i];
-            }
-            delete[] data;
-            data = newData;
-        }
-        data[sz++] = v;
-    }
-    T& operator[](int idx) {
-        assert(idx < sz && idx >= 0);
-        return data[idx];
-    }
-    int size() { return sz; }
-    void pop() { 
-        assert(sz > 0);    
-        --sz;
-    };
-    void resize(int N) {
-        delete[] data;
-        capa = N;
-        sz = N;
-        data = new T[N];
-    }
-    void clear() {
-        delete[] data;
-        capa = 10, sz = 0;
-        data = new T[capa];
-    }
-};
-
-template <typename T>
 struct MinHeap {
-    Vector<T> data;
+    vector<T> data;
     int p(int idx) {
         return ((idx - 1) >> 1);
     }
@@ -69,7 +23,7 @@ struct MinHeap {
         return (idx << 1) + 2;
     }
     void push(T v) {
-        data.insert(v);
+        data.push_back(v);
         int idx = data.size() - 1;
 
         while(idx > 0 && data[p(idx)] > data[idx]) {
@@ -88,7 +42,7 @@ struct MinHeap {
         assert(data.size() > 0);
         T ret = data[0];
         data[0] = data[data.size() - 1];
-        data.pop();
+        data.pop_back();
 
         int idx = 0;
         while(l(idx) < data.size()) {
@@ -109,12 +63,11 @@ struct MinHeap {
     
     void merge(MinHeap<T>& other) {
         if (other.data.size() < data.size()) {
-            swap(data.data, other.data.data);
-            swap(data.sz, other.data.sz);
-            swap(data.capa, other.data.capa);
+            swap(data, other.data);
         }
         while(other.data.size()) {
-            push(other.pop());
+            T tmp = other.pop();
+            push(tmp);
         }
         other.clear();
     }
@@ -146,7 +99,7 @@ struct Priority {
     }
 };
 
-Vector<Node> n;
+vector<Node> n;
 constexpr ll INF = 0x3A3A3A3A3A3A3A3ALL;
 void solve() {
     int N; scanf("%d", &N);

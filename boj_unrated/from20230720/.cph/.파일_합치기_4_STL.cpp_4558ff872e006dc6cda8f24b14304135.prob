@@ -1,0 +1,1 @@
+{"name":"Local: 파일_합치기_4_STL","url":"/mnt/c/git/baekjoon/boj_unrated/from20230720/파일_합치기_4_STL.cpp","tests":[{"id":1696402838263,"input":"2\n4\n40 30 30 50\n15\n1 21 3 4 5 35 5 4 3 5 98 21 14 17 32","output":"300\n864"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/mnt/c/git/baekjoon/boj_unrated/from20230720/파일_합치기_4_STL.cpp","group":"local","local":true}
