@@ -4,19 +4,40 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
-#define _D(...) // printf(__VA_ARGS__)
-
-typedef long long ll;
-typedef unsigned long long ull;
-
-template <typename T>
-struct Vector {
-    T* data;
-    int capa, sz;
-    Vector() {
-        capa = 10; sz = 0;
-        data = new T[capa];
+ 
+using lld = long long;
+ 
+template<typename T>
+struct HuTucker{
+    using value_t = T;
+    using heap_t = priority_queue<value_t, vector<value_t>, greater<value_t>>;
+    int N;
+    vector<value_t> W, C;
+    vector<int> L, R;
+    vector<heap_t> heaps;
+    priority_queue<pair<value_t, int>> main;
+    static value_t second_top(heap_t& h){
+        auto a = h.top(); h.pop();
+        auto b = h.top();
+        h.push(a);
+        return b;
+    }
+    static void merge(heap_t& a, heap_t& b){
+        if (a.size() < b.size()) a.swap(b);
+        while (!b.empty()) a.push(b.top()), b.pop();
+    }
+    static constexpr value_t inf = numeric_limits<value_t>::max();
+    HuTucker(const vector<T>& arr){
+        N = arr.size();
+        W.resize(N+2); C.resize(N+2); L.resize(N+2); R.resize(N+2);
+        for (int i=0;i<N;i++) W[i+1] = arr[i];
+        for (int i=0;i<=N;i++) R[i] = i+1, L[i+1] = i;
+        W[0] = W[N+1] = inf;
+        heaps.resize(N+1);
+        for (int i=1;i<N;i++){
+            C[i] = W[i]+W[i+1];
+            main.emplace(-C[i], i);
+        }
     }
     ~Vector() {
         delete[] data;
