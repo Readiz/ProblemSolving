@@ -4,82 +4,15 @@
 
 #include <bits/stdc++.h>
 using namespace std;
- 
-using lld = long long;
- 
-template<typename T>
-struct HuTucker{
-    using value_t = T;
-    using heap_t = priority_queue<value_t, vector<value_t>, greater<value_t>>;
-    int N;
-    vector<value_t> W, C;
-    vector<int> L, R;
-    vector<heap_t> heaps;
-    priority_queue<pair<value_t, int>> main;
-    static value_t second_top(heap_t& h){
-        auto a = h.top(); h.pop();
-        auto b = h.top();
-        h.push(a);
-        return b;
-    }
-    static void merge(heap_t& a, heap_t& b){
-        if (a.size() < b.size()) a.swap(b);
-        while (!b.empty()) a.push(b.top()), b.pop();
-    }
-    static constexpr value_t inf = numeric_limits<value_t>::max();
-    HuTucker(const vector<T>& arr){
-        N = arr.size();
-        W.resize(N+2); C.resize(N+2); L.resize(N+2); R.resize(N+2);
-        for (int i=0;i<N;i++) W[i+1] = arr[i];
-        for (int i=0;i<=N;i++) R[i] = i+1, L[i+1] = i;
-        W[0] = W[N+1] = inf;
-        heaps.resize(N+1);
-        for (int i=1;i<N;i++){
-            C[i] = W[i]+W[i+1];
-            main.emplace(-C[i], i);
-        }
-    }
-    ~Vector() {
-        delete[] data;
-    }
 
-    void insert(T v) {
-        if (capa == sz) {
-            capa *= 2;
-            T* newData = new T[capa];
-            for(int i = 0; i < sz; ++i) {
-                newData[i] = data[i];
-            }
-            delete[] data;
-            data = newData;
-        }
-        data[sz++] = v;
-    }
-    T& operator[](int idx) {
-        assert(idx < sz && idx >= 0);
-        return data[idx];
-    }
-    int size() { return sz; }
-    void pop() { 
-        assert(sz > 0);    
-        --sz;
-    };
-    void resize(int N) {
-        delete[] data;
-        capa = N;
-        sz = N;
-        data = new T[N];
-    }
-    void clear() {
-        delete[] data;
-        capa = 10, sz = 0;
-        data = new T[capa];
-    }
-};
+#define _D(...) // printf(__VA_ARGS__)
+
+typedef long long ll;
+typedef unsigned long long ull;
 
 template <typename T>
 struct MinHeap {
-    Vector<T> data;
+    vector<T> data;
     int p(int idx) {
         return ((idx - 1) >> 1);
     }
@@ -90,7 +23,7 @@ struct MinHeap {
         return (idx << 1) + 2;
     }
     void push(T v) {
-        data.insert(v);
+        data.push_back(v);
         int idx = data.size() - 1;
 
         while(idx > 0 && data[p(idx)] > data[idx]) {
@@ -109,7 +42,7 @@ struct MinHeap {
         assert(data.size() > 0);
         T ret = data[0];
         data[0] = data[data.size() - 1];
-        data.pop();
+        data.pop_back();
 
         int idx = 0;
         while(l(idx) < data.size()) {
@@ -130,12 +63,11 @@ struct MinHeap {
     
     void merge(MinHeap<T>& other) {
         if (other.data.size() < data.size()) {
-            swap(data.data, other.data.data);
-            swap(data.sz, other.data.sz);
-            swap(data.capa, other.data.capa);
+            swap(data, other.data);
         }
         while(other.data.size()) {
-            push(other.pop());
+            T tmp = other.pop();
+            push(tmp);
         }
         other.clear();
     }
@@ -167,7 +99,7 @@ struct Priority {
     }
 };
 
-Vector<Node> n;
+vector<Node> n;
 constexpr ll INF = 0x3A3A3A3A3A3A3A3ALL;
 void solve() {
     int N; scanf("%d", &N);

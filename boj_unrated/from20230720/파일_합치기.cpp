@@ -1,43 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
 typedef unsigned long long ull;
+typedef long long ll;
+typedef pair<int,int> pii;
+#define FOR(i,a,b) for(int i=(a); ((i)^(b)); ++i)
+#ifndef ONLINE_JUDGE
+    bool isDebug = true;
+    #define _D(...) // printf(__VA_ARGS__)
+#else
+    bool isDebug = false;
+    #define _D(...)
+#endif
 
 constexpr int INF = 987654321;
 void solve() {
-    int N; scanf("%d", &N);
-    vector<int> v(N+1);
-    vector<int> S(N+1);
-    for(int i = 1; i <= N; ++i) scanf("%d", &v[i]);
-    S[0] = 0;
-    for(int i = 1; i <= N; ++i) S[i] = S[i-1] + v[i];
-    // K^3 DP로 해결 가능
-    // DP[i][j]: i~j 까지의 파일을 합치는데 드는 최소 비용 (초기값: INF)
-    // 다음과 같이 일반적인 DP식을 세울 수 있다. (like 플로이드 워셜)
-    // DP[i][j] = min{i<k<j}(DP[i][k]+DP[k][j]+S[i][j])
-    int DP[101][101];
-    fill((int*)DP, (int*)DP + 101*101, INF);
+    int N;
+    scanf("%d", &N);
+    vector<int> cost(N+1);
+    vector<int> pSum(N+1);
+    
+    FOR(i,1,N+1) {
+        scanf("%d", &cost[i]);
+        pSum[i] = pSum[i-1] + cost[i];
+    }
+
+    int DP[501][501];
+    fill((int*)DP, (int*)DP+501*501, INF);
     for(int i = 0; i <= N; ++i) DP[i][i] = 0;
 
-    // [s, e]
-    for(int d = 1; d <= N-1; ++d) { // 거리가 작은 것부터 업데이트 해 나가야 한다.
-        for(int s = 1; s <= N; ++s) {
-            int e = s + d;
-            if (e > N) break;
-            // printf("[d] checking %d ~ %d\n", s, e);
-            for(int k = s; k < e; ++k) {
-                DP[s][e] = min(DP[s][e], DP[s][k] + DP[k+1][e] + S[e] - S[s - 1]);
+    for(int d = 1; d <= N; ++d) {
+        for(int i = 1; i <= N-1; ++i) {
+            int j = i + d;
+            if (j > N) break;
+            for(int k = i; k <= j; ++k) {
+                // dp[i][j] = dp[i][k] + dp[k+1][j] + areaSum
+                if (DP[i][k] + DP[k+1][j] + pSum[j] - pSum[i - 1] < DP[i][j]) {
+                    _D("%d ~ %d = %d ~ %d + %d ~ %d = %d\n", i, j, i, k, k + 1, j, DP[i][k] + DP[k+1][j] + pSum[j] - pSum[i - 1]);
+                }
+                DP[i][j] = min(DP[i][j], DP[i][k] + DP[k+1][j] + pSum[j] - pSum[i - 1]);
             }
-            // printf("[d] = %d\n", DP[s][e]);
         }
     }
 
-    // 최종 비용은 DP[1][N] 에 당연히 존재한다.
     printf("%d\n", DP[1][N]);
 }
+
 int main() {
-    int T; scanf("%d", &T);
-    while(T--) solve();
+    int tc;
+    scanf("%d", &tc);
+    FOR(TC,0,tc) {
+        solve();
+    }
+
     return 0;
 }
