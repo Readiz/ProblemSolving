@@ -13,16 +13,6 @@ typedef pair<int,int> pii;
     #define _D(...)
 #endif
 
-string intToStr(int v) {
-    string ret = "";
-    while(v > 0) {
-        char cc = v % 10 + '0';
-        ret = cc + ret;
-        v /= 10;
-    }
-    return ret;
-}
-
 int N, M;
 vector<int> v;
 set<string> printed;
@@ -30,7 +20,7 @@ void dfs(set<int> used, vector<int> cur) {
     if (cur.size() >= M) {
         string s = "";
         for(auto& item: cur) {
-            s += intToStr(item);
+            s += item + '0';
             s += " ";
         }
         if (printed.find(s) == printed.end()) {
