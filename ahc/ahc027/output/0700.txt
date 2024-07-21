@@ -1,0 +1,7 @@
+Path Length: 1836
+Start L at 0, 0...
+Expected Score: 49581604
+Path Length: 1754
+Start L at 0, 0...
+Expected Score: 48889187
+48889187
