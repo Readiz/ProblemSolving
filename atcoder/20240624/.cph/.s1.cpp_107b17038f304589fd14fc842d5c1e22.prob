@@ -1,0 +1,1 @@
+{"name":"Local: s1","url":"/home/readiz/nativegit/ProblemSolving/atcoder/20240624/s1.cpp","tests":[{"id":1719325764543,"input":"1\n1 1\ngas 0% 5% 13%\ngas $100.00","output":"8.00"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/readiz/nativegit/ProblemSolving/atcoder/20240624/s1.cpp","group":"local","local":true}

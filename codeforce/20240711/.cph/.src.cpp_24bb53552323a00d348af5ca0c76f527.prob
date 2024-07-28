@@ -1,0 +1,1 @@
+{"name":"Local: src","url":"/home/readiz/nativegit/ProblemSolving/codeforce/20240711/src.cpp","tests":[{"id":1720708576796,"input":"2\n2 3 4\n10 1 10","output":"100\n600"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/readiz/nativegit/ProblemSolving/codeforce/20240711/src.cpp","group":"local","local":true}

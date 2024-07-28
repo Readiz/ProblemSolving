@@ -43,6 +43,8 @@ void sort(int s, int e) {
 int Plant[6][6];
 Seed_t Nxt_Seed[1000];
 
+int Y[15];
+
 bool isFirst = true;
 void Get(int i, int j) {
     if (isDebug && !isFirst) {
@@ -58,32 +60,32 @@ void Generate() {
     char buf[20];
     FOR(i,0,N) FOR(j,0,N-1) {
         scanf("%s", buf);
-        _D("#");
+        //_D("#");
         FOR(k,0,M) {
             if (buf[k] == '0') {
                 Nxt_Seed[gidx].M[k] = Seed[Plant[i][j]].M[k];
             } else {
                 Nxt_Seed[gidx].M[k] = Seed[Plant[i][j+1]].M[k];
             }
-            _D("%d ", Nxt_Seed[gidx].M[k]);
+            //_D("%d ", Nxt_Seed[gidx].M[k]);
         }
         ++gidx;
-        _D("\n");
+        //_D("\n");
     }
     // 상하
     FOR(i,0,N-1) FOR(j,0,N) {
         scanf("%s", buf);
-        _D("#");
+        //_D("#");
         FOR(k,0,M) {
             if (buf[k] == '0') {
                 Nxt_Seed[gidx].M[k] = Seed[Plant[i][j]].M[k];
             } else {
                 Nxt_Seed[gidx].M[k] = Seed[Plant[i+1][j]].M[k];
             }
-            _D("%d ", Nxt_Seed[gidx].M[k]);
+            //_D("%d ", Nxt_Seed[gidx].M[k]);
         }
         ++gidx;
-        _D("\n");
+        //_D("\n");
     }
 }
 
@@ -102,12 +104,15 @@ void GetBaseScore() {
 void In() {
     if (!isFirst && isDebug) Generate();
 
+    FOR(i,0,M) Y[i] = 0;
+
     double coeff = -0.25 * CurTurn + 3;
     FOR(i,0,C) {
         double s = 0;
         FOR(j,0,M) {
             Get(i,j);
             s += pow(Seed[i].M[j], coeff);
+            Y[j] = max(Y[j], Seed[i].M[j]);
         }
         Seed[i].score = s;
     }
@@ -118,23 +123,35 @@ void In() {
     }
 };
 
+double lse(double a, double b) {
+    int M = max(a, b);
+    return M * 2 + 2 * log(exp((a - M) / 2) + exp((b - M) / 2));
+}
+double lse4(double a, double b, double c, double d) {
+    int M = max(max(a, b), max(c, d));
+    return M * 2 + 2 * log(exp((a - M) / 2) + exp((b - M) / 2) + exp((c - M) / 2) + exp((d - M) / 2));
+}
+const double Delta = 5;
+
 int dr[4] = {-1, 0, 1, 0};
 int dc[4] = {0, -1, 0, 1};
 double GetSingleScore(int r, int c) {
-    double ret = 0;
     // double coeff = -0.25 * CurTurn + 3;
+    double v[4];
     FOR(p,0,4) {
         int tr = r + dr[p];
         int tc = c + dc[p];
-        double cur = 0;
         FOR(k,0,M) {
-            // ret += pow(double(Seed[Plant[tr][tc]].M[k] + Seed[Plant[r][c]].M[k]) / 2, coeff);
-            cur += pow(abs(Seed[Plant[tr][tc]].M[k] - Seed[Plant[r][c]].M[k]), 2);
+            // cur += pow(max(Seed[Plant[tr][tc]].M[k], Seed[Plant[r][c]].M[k]), 2);
+            double a, b;
+            a = Y[k] - Seed[Plant[tr][tc]].M[k];
+            b = Y[k] - Seed[Plant[r][c]].M[k];
+            if (a > b) swap(a, b);
+            v[p] = lse(1.0 / (Delta + a), 1.0 / (Delta + b));
         }
-        ret += cur;
     }
 
-    return ret;
+    return lse4(v[0], v[1], v[2], v[3]);
 }
 
 struct Coord_t {
@@ -166,11 +183,18 @@ unsigned int prand() {
     seed = 214013 * seed + 2531011;
     return (seed >> 16) & 0x7FF;
 }
+
+double randprob() {
+    double ret = (double)prand() / 0x7FF;
+    // _D("[p] %lf\n", ret);
+    return ret;
+}
+
 void Out() {
     FOR(i,0,C) Order[i] = i, Seed[i].used = false;
     sort(0,C - 1);
 
-    if (CurTurn == 0) {
+    if (false && CurTurn == 0) {
         // Max는 2개까지만 선택
         int didx = N*N;
         int cnt[15] = {0, };
@@ -199,33 +223,65 @@ void Out() {
     }
 
 
+    const double K = 1'000'000;
+    const double K2 = 1'000'000;
     // 랜덤스왑 시작
-    // if (CurTurn == 1) {
-    //     int swapcnt = 0;
-    //     FOR(r,0,10'000) {
-    //         int ar = (prand() % (N - 1)) + 1;
-    //         int ac = (prand() % (N - 1)) + 1;
-    //         int br = (prand() % (N - 1)) + 1;
-    //         int bc = (prand() % (N - 1)) + 1;
-    //         if (ar == br && ac == bc) continue;
+    if (CurTurn < 6) {
+        int swapcnt = 0;
+        for(double T = 1'000; T > 1e-6; T *= 0.995) {
+            int mode = prand() % 2;
 
-    //         double before = GetSingleScore(ar, ac) + GetSingleScore(br, bc);
-    //         swap(Plant[ar][ac], Plant[br][bc]);
-    //         double after = GetSingleScore(ar, ac) + GetSingleScore(br, bc);
-            
-    //         if (before < after) {
-    //             // swap!
-    //             // _D("#before: %lf / after: %lf\n", before, after);
-    //             ++swapcnt;
-    //         } else {
-    //             // no!
-    //             swap(Plant[ar][ac], Plant[br][bc]);
-    //         }
-    //     }
+            if (mode == 1) {
+                int ar = (prand() % (N - 1)) + 1;
+                int ac = (prand() % (N - 1)) + 1;
+                int br = (prand() % (N - 1)) + 1;
+                int bc = (prand() % (N - 1)) + 1;
+                if (ar == br && ac == bc) continue;
 
-    //     // 랜덤스왑 끝
-    //     _D("#swap: %d\n", swapcnt);
-    // }
+                double before = GetSingleScore(ar, ac) + GetSingleScore(br, bc);
+                swap(Plant[ar][ac], Plant[br][bc]);
+                double after = GetSingleScore(ar, ac) + GetSingleScore(br, bc);
+                
+                if (exp((double)(after - before) * K / T) > randprob()) {
+                // if (after > before) {
+                    // swap!
+                    // _D("#before: %lf / after: %lf\n", before, after);
+                    _D("[1] swap! before: %lf / after: %lf -> %lf\n", before, after, exp((double)(after - before) * K / T));
+                    ++swapcnt;
+                } else {
+                    // no!
+                    swap(Plant[ar][ac], Plant[br][bc]);
+                }
+            } else {
+                int ar = (prand() % (N - 1)) + 1;
+                int ac = (prand() % (N - 1)) + 1;
+                int u;
+                do {
+                    u = prand() % C;
+                } while(Seed[u].used == true);
+                
+
+                int old = Plant[ar][ac];
+                double before = GetSingleScore(ar, ac);
+                Plant[ar][ac] = u;
+                double after = GetSingleScore(ar, ac);
+                
+                if (exp((double)(after - before) * K2 / T) > randprob()) {
+                //if (after > before) {
+                    Seed[old].used = false;
+                    Seed[u].used = true;
+                    _D("[2] swap! before: %lf / after: %lf -> %lf\n", before, after, exp((double)(after - before) * K / T));
+                    ++swapcnt;
+                } else {
+                    // no!
+                    Plant[ar][ac] = old;
+                }
+            }
+        }
+
+        // 랜덤스왑 끝
+        _D("#swap: %d\n", swapcnt);
+    }
 
     FOR(i,0,N) {
         FOR(j,0,N) {
@@ -263,9 +319,9 @@ int main() {
     }
     csort(0,N*N-1);
     
-    FOR(i,0,N*N) {
-        _D("#[%d] %d, %d\n", i, Coord[COrder[i]].r, Coord[COrder[i]].c);
-    }
+    // FOR(i,0,N*N) {
+    //     _D("#[%d] %d, %d\n", i, Coord[COrder[i]].r, Coord[COrder[i]].c);
+    // }
 
     FOR(i,0,T) {
         _D("#Turn %d\n", i);

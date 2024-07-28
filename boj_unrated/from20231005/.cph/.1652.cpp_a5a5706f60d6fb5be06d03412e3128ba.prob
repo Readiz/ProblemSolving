@@ -1,0 +1,1 @@
+{"name":"Local: 1652","url":"/home/readiz/nativegit/ProblemSolving/boj_unrated/from20231005/1652.cpp","tests":[{"id":1699880422965,"input":"5\n....X\n..XX.\n.....\n.XX..\nX....","output":"5 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/readiz/nativegit/ProblemSolving/boj_unrated/from20231005/1652.cpp","group":"local","local":true}
